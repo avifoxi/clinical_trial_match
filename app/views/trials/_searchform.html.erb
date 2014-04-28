@@ -5,8 +5,6 @@
   <div class="clear"></div>
   <%= select_tag(:td,
   options_for_select([['Will travel 25 miles', 25], ['Will travel 50 miles', 50], ['Will travel 100 miles', 100], ['Will travel 300 miles', 300]], params[:td]||100 )) %>
-
-  <div class="clear"></div>
   <hr>
   <%= label_tag(:q, "Keyword:") %>
   <%= text_field_tag(:q, params[:q]) %>
@@ -32,9 +30,9 @@
   <div class="genderContainer" >
     <div style="clear:both"></div>
   <%= radio_button_tag(:gender, "male", (params[:gender] == "male" ? true : false)) %>
-  <%= label_tag(:gender_male, "M") %>
-  <%= radio_button_tag(:gender, "female", (params[:gender] == "female" ? true : false)) %>
-  <%= label_tag(:gender_female, "F") %>
+  <%= label_tag(:gender_male, "Male") %>
+  <%= radio_button_tag(:gender, "female", (params[:gender] == "female" ? true : false), :style => "margin-left:10px;") %>
+  <%= label_tag(:gender_female, "Female") %>
   </div>
    <div class="clear"></div>
 
