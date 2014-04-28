@@ -1,7 +1,7 @@
 <h3>Search Trials</h3>
 <%= form_tag("", method: "get") do %>
   <%= label_tag(:pc, "Zip Code:", :class => "inlineFormLabel") %>
-  <%= text_field_tag(:pc, params[:pc], :style => "width:80px;", :class => "inlineFormField") %>
+  <%= text_field_tag(:pc, params[:pc], :style => "width:80px; margin-left:10px;", :class => "inlineFormField") %>
   <div class="clear"></div>
   <%= select_tag(:td,
   options_for_select([['Will travel 25 miles', 25], ['Will travel 50 miles', 50], ['Will travel 100 miles', 100], ['Will travel 300 miles', 300]], params[:td]||100 )) %>
@@ -23,8 +23,7 @@
   <div class="clear"></div>
 <hr>
   <%= label_tag(:age, "Age:", :class => "inlineFormLabel") %>
-      <div class="clear none"></div>
-  <%= text_field_tag(:age, params[:age], :class => "inlineFormField") %>
+  <%= text_field_tag(:age, params[:age],:style => "width:80px; margin-left:10px;", :class => "inlineFormField") %>
   <div class="clear"></div>
 <hr>
   <%= label_tag(:gender, "Gender:", :class => "inlineFormLabel") %>
