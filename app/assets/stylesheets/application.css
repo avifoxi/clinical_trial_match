@@ -176,7 +176,12 @@
   }
   .inlineFormLabel{
     float: left;
+
   }
+.req-legend, label, .level-row, .FormLabelText{
+      padding-top: 0.4em;
+}
+
   .inlineSelectLabel{
     float:left;
     padding-right:5px;
