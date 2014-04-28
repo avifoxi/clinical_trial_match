@@ -115,7 +115,7 @@
 
   .alert{
       line-height:30px;
-      margin-bottom: 20px;
+      /*margin-bottom: 20px;*/
       text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
       border: 1px solid #fbeed5;
       -webkit-border-radius: 4px;
@@ -128,7 +128,7 @@
   }
   .notice{
       line-height:30px;
-      margin-bottom: 20px;
+      /*margin-bottom: 20px;*/
       text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
       border: 1px solid #fbeed5;
       -webkit-border-radius: 4px;
@@ -213,7 +213,7 @@
   }
   @media screen and (min-width: 1000px){
       #h{
-      font-size: 2.75em; 
+      font-size: 2.75em;
     }
   }
   #td{
@@ -234,7 +234,7 @@
     margin: 0px 20px;
     padding: 2em;
   }
-  input[type=text], 
+  input[type=text],
   input[type=email] {
   padding: 0.8em;
   width: 90%;
