@@ -306,7 +306,7 @@ userAction: act
 <p style="float:left;" class="alert"><%= alert %></p>
  <div style="clear:both;"></div>
 <%= yield %>
-
+</div>
 
 	<!-- END MAIN CONTENT COLUMN -->
 
@@ -320,157 +320,185 @@ userAction: act
 
 
 <!-- START SHARE FOOTER - visible on mobile layout  -->
-<footer class="share wrapper">
-	<span class="addthis_button">Share</span>
-</footer>
-<!-- END SHARE FOOTER  -->
+ <footer id="footer">
+    <!-- START SEARCH BY CONNECTION MENU -->
 
-</div>
-<!-- END COLUMNS WRAPPER -->
-
-</article>
-
-
-
-<!-- START STAY CONNECTED BAR -->
-<aside id="stay-connected">
-	<div class="wrapper">
-		<h2><span>Stay</span> Connected</h2>
-		<form>
-			<fieldset>
-				<legend>Email Newsletter Signup Form</legend>
-
-				<label for="first_name">First Name</label>
-				<input type="text" id="first_name" value="" placeholder="First Name">
-
-				<label for="last_name">Last Name</label>
-				<input type="text" id="last_name" value="" placeholder="Last Name">
-
-
-				<label for="email">Email Address</label>
-				<input id="email" type="email" value="" placeholder="Email Address">
-
-				<button type="submit">Sign Up</button>
-
-			</fieldset>
-
-		</form>
-	</div>
-</aside>
-<!-- END STAY CONNECTED BAR -->
-<!-- START FOOTER -->
-<footer id="footer">
-
-	<!-- START SEARCH BY CONNECTION MENU -->
-
-	<div class="search-by-connection wrapper">
-		<p>Search By Connection:</p>
-			<a href="http://www.braintumor.org/patients-family-friends/">Patients &#038; Families</a>
-<a href="http://www.braintumor.org/get-involved/advocacy-public-policy/">Advocates</a>
-<a href="http://www.braintumor.org/giving/">Supporters</a>
-<a href="http://www.braintumor.org/research/">Researchers</a>
-<a href="http://www.braintumor.org/giving/ways-to-give/#CorporationsFoundations">Industry</a>
-<a href="http://www.braintumor.org/news/press-kit/">Media</a>
-	</div>
+    <div class="search-by-connection wrapper">
+      <p>Search By Connection:</p>
+      <a href="http://www.braintumor.org/search-by-connection#patients-families">Patients &amp; Families</a
+      >
+      <a href="http://www.braintumor.org/search-by-connection#advocates">Advocates</a
+      >
+      <a href="http://www.braintumor.org/search-by-connection#supporters">Supporters</a
+      >
+      <a href="http://www.braintumor.org/search-by-connection#researchers">Researchers</a
+      >
+      <a href="http://www.braintumor.org/search-by-connection#industry">Industry</a
+      >
+      <a href="http://www.braintumor.org/search-by-connection#media">Media</a>
+    </div>
 
     <!-- END SEARCH BY CONNECTION MENU -->
 
     <!-- START FOOTER SITE NAVIGATION -->
+    <nav id="menu" class="wrapper">
+      <ul>
+        <li>
+          <a href="http://www.braintumor.org/brain-tumor-information/">Brain Tumor Information</a>
+          <ul>
+            <li>
+              <a href="http://www.braintumor.org/brain-tumor-information/recently-diagnosed/">Recently Diagnosed?</a>
+            </li>
+            <li>
+              <a href="http://www.braintumor.org/brain-tumor-information/treatment-options/">Treatment Options</a>
+            </li>
+            <li>
+              <a href="http://www.braintumor.org/brain-tumor-information/finding-support-and-coping/">Finding Support & Coping</a>
+            </li>
+            <li>
+              <a href="http://www.braintumor.org/brain-tumor-information/#caregiver-resources">Caregiver Resources</a>
+            </li>
+          </ul>
+        </li>
+        <li class="active">
+          <a href="http://www.braintumor.org/about-us/">About us</a>
+          <ul>
+            <li>
+              <a href="http://www.braintumor.org/about-us/our-impact/">Our Impact</a>
+            </li>
+            <li>
+              <a href="http://www.braintumor.org/about-us/summit/">Summit</a>
+            </li>
+            <li>
+              <a href="http://blog.braintumor.org">News &amp; Blog</a>
+            </li>
+            <li>
+              <a href="http://www.braintumor.org/about-us/leadership-staff/">Leadership &amp; Staff</a>
+            </li>
+            <li>
+              <a href="http://www.braintumor.org/about-us/financials/">Financials</a>
+            </li>
+            <li>
+              <a href="http://www.braintumor.org/about-us/careers/">Careers</a>
+            </li>
+            <li>
+              <a href="http://www.braintumor.org/about-us/contact-us/">Contact Us</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="http://www.braintumor.org/advance-research/">Advance research</a>
+          <ul>
+            <li>
+              <a href="http://www.braintumor.org/advance-research/integrated-initiatives/">Integrated Initiatives</a>
+            </li>
+            <li>
+              <a href="http://www.braintumor.org/advance-research/funded-research-and-accomplishments/">Funded Research &amp; Accomplishments</a>
+            </li>
+            <li>
+              <a href="http://www.braintumor.org/advance-research/research-funding-opportunities/">Research Funding Opportunities</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="http://www.braintumor.org/advocate-for-change/">Advocate for Change</a>
+          <ul>
+            <li>
+              <a href="http://www.braintumor.org/advocate-for-change/legislative-agenda/">Legislative Agenda</a>
+            </li>
+            <li>
+              <a href="http://www.braintumor.org/advocate-for-change/alerts-updates-polls/">Updates, Alerts &amp; Polls</a>
+            </li>
+            <li>
+              <a href="http://www.braintumor.org/advocate-for-change/tools-training/">Tools &amp; Training</a>
+            </li>
+            <li>
+              <a href="http://www.braintumor.org/advocate-for-change/advocates-in-action/">Advocates in Action</a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a href="http://www.braintumor.org/join-the-fight/">Join the Fight</a>
+          <ul>
+            <li>
+              <a href="http://www.braintumor.org/join-the-fight/ways-to-give/">Ways to Give</a>
+            </li>
+            <li>
+              <a href="http://www.braintumor.org/join-the-fight/find-start-an-event/">Find or Start an Event</a>
+            </li>
+            <li>
+              <a href="http://www.braintumor.org/join-the-fight/become-a-research-partner/">Become a Research Partner</a>
+            </li>
+            <li>
+              <a href="http://www.braintumor.org/join-the-fight/volunteer/">Volunteer</a>
+            </li>
+            <li>
+              <a href="http://www.braintumor.org/join-the-fight/share-your-story/">Share Your Story</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <a href="https://secure2.convio.net/bts/site/Donation2?df_id=4300&4300.donation=form1" class="donate-link btn btn-orange">Donate</a>
+    </nav>
+    <!-- END FOOTER SITE NAVIGATION -->
 
-	<nav id="menu" class="wrapper">
-    	<ul id="menu-footer-navigation" class="menu"><li id="menu-item-149" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-149"><a href="http://www.braintumor.org/brain-tumor-facts/">Brain Tumor Facts</a>
-<ul class="sub-menu">
-	<li id="menu-item-151" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-151"><a href="http://www.braintumor.org/brain-tumor-facts/recently-diagnosed/">Recently Diagnosed?</a></li>
-	<li id="menu-item-152" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-152"><a href="http://www.braintumor.org/brain-tumor-facts/treatment-options/">Treatment Options</a></li>
-	<li id="menu-item-153" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-153"><a href="http://www.braintumor.org/brain-tumor-facts/living-with-a-brain-tumor/">Living with a Brain Tumor</a></li>
-	<li id="menu-item-154" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-154"><a href="http://www.braintumor.org/brain-tumor-facts/caregiver-resources/">Caregiver Resources</a></li>
-</ul>
-</li>
-<li id="menu-item-123" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-123"><a href="http://braintumor.org/about-us/">About Us</a>
-<ul class="sub-menu">
-	<li id="menu-item-124" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-124"><a href="http://braintumor.org/about-us/our-impact/">Our Impact</a></li>
-	<li id="menu-item-126" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-126"><a href="http://braintumor.org/about-us/summit/">Summit</a></li>
-	<li id="menu-item-125" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-125"><a href="http://blog.braintumor.org/">News &#038; Blog</a></li>
-	<li id="menu-item-127" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-127"><a href="http://braintumor.org/about-us/partnership/">Collaborations</a></li>
-	<li id="menu-item-128" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-128"><a href="http://braintumor.org/about-us/leadership-staff/">Leadership &#038; Staff</a></li>
-	<li id="menu-item-129" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-129"><a href="http://braintumor.org/about-us/accomplishments-and-financials/">Accomplishments &#038; Financials</a></li>
-	<li id="menu-item-297" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-297"><a href="http://braintumor.org/about-us/careers/">Careers</a></li>
-	<li id="menu-item-130" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-130"><a href="http://braintumor.org/about-us/contact-us/">Contact Us</a></li>
-</ul>
-</li>
-<li id="menu-item-131" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-131"><a href="http://braintumor.org/advance-research/">Advance Research</a>
-<ul class="sub-menu">
-	<li id="menu-item-132" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-132"><a href="http://braintumor.org/advance-research/integrated-initiatives/">Integrated Initiatives</a></li>
-	<li id="menu-item-133" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-133"><a href="http://braintumor.org/advance-research/funded-research-and-accomplishments/">Funded Research &#038; Accomplishments</a></li>
-	<li id="menu-item-134" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-134"><a href="http://braintumor.org/advanced-research/research-funding-opportunities/">Research Funding Opportunities</a></li>
-</ul>
-</li>
-<li id="menu-item-136" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-136"><a href="http://braintumor.org/advocate-for-issues/">Advocate for Issues</a>
-<ul class="sub-menu">
-	<li id="menu-item-137" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-137"><a href="http://braintumor.org/advocate-for-issues/legislative-agenda/">Legislative Agenda</a></li>
-	<li id="menu-item-138" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-138"><a href="http://braintumor.org/advocate-for-issues/updates-alerts-polls/">Updates, Alerts &#038; Polls</a></li>
-	<li id="menu-item-139" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-139"><a href="http://braintumor.org/advocate-for-issues/tools-training/">Tools and Training</a></li>
-	<li id="menu-item-140" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-140"><a href="http://braintumor.org/advocate-for-issues/advocates-in-action/">Advocates in Action</a></li>
-</ul>
-</li>
-<li id="menu-item-142" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-142"><a href="http://braintumor.org/join-the-fight/">Join the Fight</a>
-<ul class="sub-menu">
-	<li id="menu-item-143" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-143"><a href="http://braintumor.org/join-the-fight/ways-to-give/">Ways to Give</a></li>
-	<li id="menu-item-144" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-144"><a href="http://braintumor.org/join-the-fight/find_event.html">Find or Start an Event</a></li>
-	<li id="menu-item-145" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-145"><a href="http://braintumor.org/join-the-fight/change_policy.html">Change Policy</a></li>
-	<li id="menu-item-146" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-146"><a href="http://braintumor.org/join-the-fight/volunteer/">Volunteer</a></li>
-	<li id="menu-item-147" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-147"><a href="http://braintumor.org/join-the-fight/honor_your_loved_ones.html">Honor Your Loved Ones</a></li>
-</ul>
-</li>
-<li id="menu-item-155" class="active menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home current-menu-ancestor current-menu-parent menu-item-155"><a href="http://blog.braintumor.org/">News &#038; Blog</a>
-<ul class="sub-menu">
-	<li id="menu-item-158" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-158"><a href="http://blog.braintumor.org/">Blog</a></li>
-	<li id="menu-item-157" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-157"><a href="http://blog.braintumor.org/media-center/">Media Center</a></li>
-	<li id="menu-item-156" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-156"><a href="http://blog.braintumor.org/enewsletter/">eNewsletter</a></li>
-</ul>
-</li>
-</ul>
-		<a href="https://secure2.convio.net/bts/site/Donation2?df_id=3940&3940.donation=form1" class="donate-link btn btn-orange">Donate</a>
-
-
-	</nav>
-	<!-- END FOOTER SITE NAVIGATION -->
-
-	<!-- START FOOTER META MENU AND SOCIAL LINKS -->
-	<div class="meta wrapper">
-		<div class="meta-links">
+    <!-- START FOOTER META MENU AND SOCIAL LINKS -->
+    <div class="meta wrapper">
+      <div class="meta-links">
         <a href="http://www.braintumor.org/terms.html">Terms</a>
-<a href="http://www.braintumor.org/privacy-policy.html">Privacy</a>
-<a href="http://www.braintumor.org/copyright.html">Copyright</a>
-		</div>
-		<form method="get" action="http://braintumor.pub30.convio.net/search.html">
-          <fieldset>
-            <legend>Site Search</legend>
-            <label for="menu-search-input">Search term</label>
-            <input type="text" placeholder="Search" id="menu-search-input" title="Search" name="query" />
-            <label for="menu-search-submit">Submit</label>
-            <button type='submit' id="menu-search-submit" class="btn-search">Submit</button>
-          </fieldset>
-        </form>
-
-		<div class="social-links">
-			<a href="https://www.facebook.com/braintumors" class="fb">Facebook</a>
-				<a href="https://twitter.com/NBTStweets" class="twitter">Twitter</a>
-				<a href="http://www.youtube.com/user/NBTSvideo" class="yt">YouTube</a>
-				<a href="http://www.flickr.com/photos/nbts/" class="flickr">Flickr</a>
-		</div>
-
-	</div>
-	<!-- END FOOTER META MENU AND SOCIAL LINKS -->
-
-
-
-</footer>
+        <a href="http://www.braintumor.org/privacy-policy.html">Privacy</a>
+        <a href="http://www.braintumor.org/terms.html#copyright">Copyright</a>
+      </div>
+      <form method="get" action="/search.html">
+        <fieldset>
+          <legend>Site Search</legend>
+          <label for="menu-search-input">Search term</label>
+          <input type="text" placeholder="Search" id="menu-search-input" title="Search" name="query" />
+          <label for="menu-search-submit">Submit</label>
+          <button type='submit' id="menu-search-submit" class="btn-search">Submit</button>
+        </fieldset>
+      </form>
+      <div class="social-links">
+        <a href="https://www.facebook.com/braintumors" class="fb" target="_blank">Facebook</a>
+        <a href="https://twitter.com/NBTStweets" class="twitter" target="_blank">Twitter</a>
+        <a href="http://www.youtube.com/user/NBTSvideo" class="yt" target="_blank">YouTube</a>
+        <a href="http://www.flickr.com/photos/nbts/" class="flickr" target="_blank">Flickr</a>
+      </div>
+    </div>
+    <!-- END FOOTER META MENU AND SOCIAL LINKS --> </footer>
+</div>
 <!-- END FOOTER -->
 
-<script src="http://blog.braintumor.org/wp-content/themes/blankslate/js/scripts.js"></script><!-- CALL COMBINED SCRIPTS -->
+<!--[if gte IE 8]>
+<!-->
+<script src="http://www.braintumor.org/assets/js/scripts.js"></script>
+<!-- CALL COMBINED SCRIPTS -->
 <!--<![endif]-->
 
+<script type='text/javascript'>
+(function (d, t) {
+  var bh = d.createElement(t), s = d.getElementsByTagName(t)[0];
+  bh.type = 'text/javascript';
+  bh.src = '//www.bugherd.com/sidebarv2.js?apikey=wbarp7iydluiilewdweija';
+  s.parentNode.insertBefore(bh, s);
+  })(document, 'script');
+</script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-1174976-1']);
+  _gaq.push(['_setDomainName', 'braintumor.org']);
+  _gaq.push(['_setAllowLinker', true]);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
 </body>
 </html>
-
+<!-- Powered by Convio -->
+<!-- 10.12.0.41:8901 -->
