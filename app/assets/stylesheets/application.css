@@ -16,6 +16,13 @@
 
 /* Landscape phones and down */
 
+.pull_right {
+  float:right;
+}
+.pull_left{
+  float:left;
+}
+
 @media screen and (min-device-width: 768px){
    .clear .none{
     display: none;

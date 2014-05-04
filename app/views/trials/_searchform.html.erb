@@ -62,8 +62,9 @@
 
   <%= hidden_field_tag 'mf', params[:mf], id: "mf_capture" %>
   <%= hidden_field_tag 'ot', params[:ot], id: "ot_capture" %>
-
-  <%= submit_tag("Search Trials", :class => "btn btn-orange") %>
+<div style="text-align:center;">
+  <%= submit_tag("Search Trials", :class => "btn btn-orange", :style=> "float:none;") %>
+</div>
   <% end %>
 
 
@@ -74,6 +75,6 @@
   <%= link_to "more filters", trials_path(:q => params[:q],:pc => params[:pc],:td => params[:td],:vt => params[:vt],:age => params[:age],:gender => params[:gender],:age => params[:age],:ot => params[:ot],:mf => "t",:anchor => "h"), :class =>"alignleft" %>
   <% end %>
 
-  <%= link_to "clear", trials_path(:anchor => "h"), :class =>"alignright" %>
+  <%= link_to "clear filters", trials_path(:anchor => "h"), :class =>"pull_right" %>
   <div class="clear" style="margin-bottom:50px;"></div>
 
