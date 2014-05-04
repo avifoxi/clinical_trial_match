@@ -56,15 +56,7 @@
     <div class="clear"></div>
 <hr>
 
-
-
-
-
-
-
     <div class="clear"></div>
-
-
 
     <% end %>
 
@@ -85,23 +77,3 @@
   <%= link_to "clear", trials_path(:anchor => "h"), :class =>"alignright" %>
   <div class="clear" style="margin-bottom:50px;"></div>
 
-
-<script>
-  var ready2;
-  ready2 = function() {
-
-    var availableTags = [
-
-  <% @focuses.each do |focus| %>
-  <%= raw("\"#{focus.term}\",") %>
-  <% end %>
-    ];
-    $( "#tags" ).autocomplete({
-      source: availableTags,
-      minLength: 0
-    });
-  };
-
-$(document).ready(ready2);
-$(document).on('page:load', ready2);
-</script>
