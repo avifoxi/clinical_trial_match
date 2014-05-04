@@ -65,7 +65,7 @@
       <div class="clear"></div>
            <h4>Focus:</h4>
         <p>
-            <%= trial.focus %>
+          <%= (trial.focus.length >= 160)? "#{trial.focus[0..160]}...":"#{trial.focus[0..160]}" %>
           </p>
 <div class="clear"></div>
 <div class="inline">
@@ -88,7 +88,7 @@
         </div>
 </div>
       <!-- @TODO? LETS GET THIS IN THE CONTROLLER -->
-      
+
   <% end %>
 
 <% if @trials.count > 10 %>
