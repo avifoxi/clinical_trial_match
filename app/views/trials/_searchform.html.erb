@@ -57,9 +57,9 @@
 <hr>
 
 <!-- @TODO? What's a modal technique for rails to make it look similar to https://www.michaeljfox.org/foundation/news-tags.php -->
-    <%= label_tag(:focus, "Focus:", :class => "inlineSelectLabel") %>
+    <%= label_tag(:focus, "Keyword:", :class => "inlineSelectLabel", :style =>"width: 50px;") %>
     <%= text_field_tag(:focus, params[:focus],:id => "tags", :class => "inlineFormField", :style => "margin-left: 0.5em;
-width: 110px;") %>
+width: 110px;", :placeholder => "(ex - Glioma)") %>
 
 
 
