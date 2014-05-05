@@ -1,26 +1,20 @@
 ClinicalTrialMatcher::Application.routes.draw do
 
   root "homepage#index"
+  get "/blog" => "homepage#blog"
+  get "/faq" => "homepage#faq"
   get "/omniauth_callbacks/twitter"
-  get "/importer/show"
   get "/importer" => 'importer#show'
 
   post "/importer/run"
-  get "/importer/run"
-
   post "/importer/delete_all"
-  get "/importer/delete_all"
-
   post "/importer/clear_date"
-  get "/importer/clear_date"
-
-  get "/importer/new_match_alert"
   post "/importer/new_match_alert"
 
   get "/user_mailer/new_match_alert"
   post "/user_mailer/new_match_alert"
 
-  get "trials/" => "trials#index", as: :trials 
+  get "trials/" => "trials#index", as: :trials
   get "trials/:id" => "trials#show", as: :trial
 
   devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
@@ -66,7 +60,7 @@ ClinicalTrialMatcher::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'
