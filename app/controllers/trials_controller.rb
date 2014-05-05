@@ -6,7 +6,7 @@ class TrialsController < ApplicationController
     @focuses = Focus.all
     session[:coordinates] = ""
     unless params[:pc].blank?
-        session[:coordinates] =  Geocoder.coordinates("#{params[:pc]}, United States"), :lookup => :google
+        session[:coordinates] =  Geocoder.coordinates("#{params[:pc]}, United States")
         # session[:coordinates] = [40.7142700 , -74.0059700]
         if session[:coordinates].nil?
           session[:coordinates] = [40.7142700 , -74.0059700]
