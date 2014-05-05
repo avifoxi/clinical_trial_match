@@ -6,12 +6,12 @@ class TrialsController < ApplicationController
     @focuses = Focus.all
     session[:coordinates] = ""
     unless params[:pc].blank?
-        session[:coordinates] =  Geocoder.coordinates("#{params[:pc]}, United States")
+        session[:coordinates] =  Geocoder.coordinates("#{params[:pc]}, United States"), :lookup => :google
         # session[:coordinates] = [40.7142700 , -74.0059700]
         if session[:coordinates].nil?
           session[:coordinates] = [40.7142700 , -74.0059700]
           # flash.now[:alert] = "We are unable to detect a zip code for your location at this time."
-          # AdminAlerts.no_lat_long(params[:pc]).deliver       
+          # AdminAlerts.no_lat_long(params[:pc]).deliver
         end
     end
 
@@ -62,7 +62,7 @@ class TrialsController < ApplicationController
     else
       @next_trial = trial_ids[tmpIndex+1]
     end
-    
+
     @previous_trial = trial_ids[tmpIndex-1]
 
   end

@@ -72,7 +72,7 @@ GEM
     execjs (2.0.2)
     ffi (1.9.0)
     formatador (0.2.4)
-    geocoder (1.1.8)
+    geocoder (1.2.0)
     grit (2.5.0)
       diff-lcs (~> 1.1)
       mime-types (~> 1.15)
@@ -263,7 +263,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
   dotenv-rails
-  geocoder
+  geocoder (= 1.2.0)
   guard
   guard-rspec
   jazz_hands

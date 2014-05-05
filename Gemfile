@@ -29,7 +29,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 # For geocoding locations
-gem 'geocoder'
+gem 'geocoder', '1.2.0'
 
 # For parsing Clinical Trials.gov RSS Feed
 gem 'nokogiri'
