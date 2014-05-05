@@ -7,7 +7,7 @@ class Site < ActiveRecord::Base
 	after_validation :geocode
 
 	def address
-		[street_address, city, state, country, zip_code].compact.join(', ')
+		[city, state, country, zip_code].compact.join(', ')
 	end
 
 end
