@@ -57,8 +57,9 @@ group :development, :test do
  	gem 'guard-rspec'
   gem 'pry'
   gem 'rspec-rails'
-
+  gem 'rspec-collection_matchers'
 end
+
 
 group :production do
 	gem 'rails_12factor'
