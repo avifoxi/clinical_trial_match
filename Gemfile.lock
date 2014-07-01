@@ -211,6 +211,14 @@ GEM
       rspec-support (~> 3.0.0)
     rspec-mocks (3.0.1)
       rspec-support (~> 3.0.0)
+    rspec-rails (3.0.1)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      railties (>= 3.0)
+      rspec-core (~> 3.0.0)
+      rspec-expectations (~> 3.0.0)
+      rspec-mocks (~> 3.0.0)
+      rspec-support (~> 3.0.0)
     rspec-support (3.0.0)
     sass (3.2.19)
     sass-rails (4.0.3)
@@ -279,9 +287,11 @@ DEPENDENCIES
   nokogiri
   omniauth-twitter
   pg
+  pry
   rails (= 4.0.0)
   rails_12factor
   rest-client
+  rspec-rails
   sass-rails (~> 4.0.0)
   sdoc
   seed_dump
