@@ -51,8 +51,6 @@ gem "zipruby"
 group :development, :test do
 	gem 'dotenv-rails'
 
-  # dump data into seed files for production
-  gem 'seed_dump'
 
 	# Use Guard + Addons for automated test runs
   gem 'guard'
@@ -60,11 +58,7 @@ group :development, :test do
   gem 'pry'
   gem 'rspec-rails'
 
- 	# better error pages in dev
-	gem 'better_errors'
-	gem 'binding_of_caller'
 end
-
 
 group :production do
 	gem 'rails_12factor'
@@ -77,6 +71,13 @@ group :development do
 
   # Works for rails console
   gem 'meta_request'
+
+  # better error pages in dev
+
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  # dump data into seed files for production
+  gem 'seed_dump'
 
 end
 
