@@ -1,13 +1,12 @@
 require "rails_helper"
 
 describe Trial do
-	it "has something going on" do
-		pending
-		trial = Trial.new
-		expect(trial.save).to_have(3).failures
+	it "is invalid without a title" do
+		# expect(Trial.new).to have(1).error_on(:title)
+		expect(Trial.new).to_not be_valid
 	end
 
-	it "has something else going on" do
-		pending
-	end
+	# it "has something else going on" do
+	# 	pending
+	# end
 end
