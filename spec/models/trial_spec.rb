@@ -21,8 +21,9 @@ describe Trial do
 		expect(FactoryGirl.build(:trial, :focus => "")).to_not be_valid
 	end
 
-	it "requires a nct_id" do
-		expect(FactoryGirl.build(:trial, :nct_id => "")).to_not be_valid
+	it "requires a unique nct_id value" do
+		FactoryGirl.create(:trial, :nct_id => "12345")
+		expect(FactoryGirl.build(:trial, :nct_id => "12345")).to_not be_valid
 	end
 
 
