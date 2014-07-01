@@ -22,7 +22,7 @@ describe Trial do
 	end
 
 	it "requires a nct_id" do
-		expect(FactoryGirl.build(:trial, :focus => "")).to_not be_valid
+		expect(FactoryGirl.build(:trial, :nct_id => "")).to_not be_valid
 	end
 
 
