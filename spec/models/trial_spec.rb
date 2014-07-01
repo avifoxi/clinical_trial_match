@@ -1,16 +1,29 @@
 require "rails_helper"
 
 describe Trial do
-	it "is invalid when empty" do
-		expect(Trial.new).to_not be_valid
+	it "is valid with required attributes" do
+		expect(FactoryGirl.build(:trial)).to be_valid
 	end
 
 	it "requires a title" do
-		# expect(Trial.new).to have(1).error_on(:title)
-		expect(Trial.new.error_on(:title).size).to eq(1)
+		expect(FactoryGirl.build(:trial, :title => "")).to_not be_valid
 	end
 
-	# it "has something else going on" do
-	# 	pending
-	# end
+	it "requires a description" do
+		expect(FactoryGirl.build(:trial, :description => "")).to_not be_valid
+	end
+
+	it "requires a sponsor" do
+		expect(FactoryGirl.build(:trial, :sponsor => "")).to_not be_valid
+	end
+
+	it "requires a focus" do
+		expect(FactoryGirl.build(:trial, :focus => "")).to_not be_valid
+	end
+
+	it "requires a nct_id" do
+		expect(FactoryGirl.build(:trial, :focus => "")).to_not be_valid
+	end
+
+
 end

@@ -14,7 +14,6 @@
 # users commonly want.
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
-require 'rspec/collection_matchers'
 require 'pry'
 
 RSpec.configure do |config|
