@@ -9,6 +9,7 @@ FactoryGirl.define do
     nct_id { "NCT0000" + Faker::Number.number(4) }
     originalminage { Faker::Number.number(2) }
     originalmaxage { Faker::Number.number(2) }
+    inclusion { Faker::Lorem.sentence }
 
   end
 end
