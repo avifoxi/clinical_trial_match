@@ -30,11 +30,17 @@ describe Trial do
 		expect(FactoryGirl.build(:trial, :inclusion => "")).to_not be_valid
 	end
 
-	it "adds html markup to the description output" do
+	it "adds html markup to the criteria output" do
 		trial = FactoryGirl.build(:trial, :inclusion => "\n\nInclusion Criteria:\n\n This is the a test sentence.\n\nExclusion Criteria:\n\n This is the a test sentence. ")
 		output = trial.output_criteria
 		expect(output).to include("<h4>Inclusion Criteria:</h4>")
 		expect(output).to include("<h4>Exclusion Criteria:</h4>")
+	end
+
+	it "adds html break tags to the detailed description output" do
+		trial = FactoryGirl.build(:trial, :detailed_description => "\n\nSentence one.\n\n Sentence two.\n\n")
+		output = trial.output_description
+		expect(output).to include("<br><br>")
 	end
 
 

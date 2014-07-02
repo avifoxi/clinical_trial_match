@@ -10,6 +10,7 @@ FactoryGirl.define do
     originalminage { Faker::Number.number(2) }
     originalmaxage { Faker::Number.number(2) }
     inclusion { Faker::Lorem.sentence }
+    detailed_description{ Faker::Lorem.sentence }
 
   end
 end
