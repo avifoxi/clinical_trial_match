@@ -1,12 +1,12 @@
 class Trial < ActiveRecord::Base
-	validates :title, :description, :sponsor, :focus, presence: true
+	validates :title, :description, :sponsor, :focus, :inclusion, presence: true
 	validates :nct_id, uniqueness: true
 	before_save :enumerate_age_value
-	
+
 	scope :control?, -> (vt) {
 		if vt == "control"
 			where(healthy_volunteers: "Accepts Healthy Volunteers")
-		end 
+		end
 	}
 	scope :gender, -> (gender) {
 		if gender == "male"
@@ -14,7 +14,7 @@ class Trial < ActiveRecord::Base
 		elsif gender == "female"
 			where(gender: ["Female", "Both"])
 
-		end 
+		end
 	}
 	scope :search_for, -> (query) {
 		where('title ILIKE :query OR description ILIKE :query', query: "%#{query}%")
@@ -34,7 +34,7 @@ class Trial < ActiveRecord::Base
 				where(study_type: "Interventional")
 			elsif type == "obs"
 				where(study_type: ["Observational","Observational [Patient Registry]"])
-			end	
+			end
 		end
 	}
 
@@ -50,7 +50,7 @@ class Trial < ActiveRecord::Base
 				where(phase: ["Phase 4","Phase 3/Phase 4"])
 			elsif phase == "0"
 				where(phase: "Phase 0")
-			end	
+			end
 		end
 	}
 
@@ -60,7 +60,7 @@ class Trial < ActiveRecord::Base
 				where(is_fda_regulated: "Yes")
 			elsif fda == "nreg"
 				where(is_fda_regulated: "No")
-			end	
+			end
 		end
 	}
 
@@ -115,9 +115,9 @@ private
 		valid_trials = []
 		valid_sites.each do |site|
 			valid_trials << site.trial_id
-			
+
 		end
 		valid_trials.uniq
-		 #[2,3,4,5,6,8]				
+		 #[2,3,4,5,6,8]
 	end
 end

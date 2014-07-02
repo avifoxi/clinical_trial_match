@@ -26,5 +26,15 @@ describe Trial do
 		expect(FactoryGirl.build(:trial, :nct_id => "12345")).to_not be_valid
 	end
 
+	it "requires an inclusion criteria" do
+		expect(FactoryGirl.build(:trial, :inclusion => "")).to_not be_valid
+	end
+
+	it "adds html markup to the description output" do
+		trial = FactoryGirl.build(:trial, :description => "\n\nInclusion Criteria: This is the inclusion criteria.\n\nExclusion Criteria: This is the exclusion criteria. ")
+		output = trial.output_criteria
+		binding.pry
+	end
+
 
 end
