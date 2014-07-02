@@ -1,5 +1,5 @@
 class Site < ActiveRecord::Base
-	# validates :facility, presence: true
+	validates :facility, :status, presence: true
 	belongs_to :trial
 
 	#TODO? City is not populating in the database.
