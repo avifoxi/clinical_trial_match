@@ -31,9 +31,10 @@ describe Trial do
 	end
 
 	it "adds html markup to the description output" do
-		trial = FactoryGirl.build(:trial, :description => "\n\nInclusion Criteria: This is the inclusion criteria.\n\nExclusion Criteria: This is the exclusion criteria. ")
+		trial = FactoryGirl.build(:trial, :inclusion => "\n\nInclusion Criteria:\n\n This is the a test sentence.\n\nExclusion Criteria:\n\n This is the a test sentence. ")
 		output = trial.output_criteria
-		binding.pry
+		expect(output).to include("<h4>Inclusion Criteria:</h4>")
+		expect(output).to include("<h4>Exclusion Criteria:</h4>")
 	end
 
 
