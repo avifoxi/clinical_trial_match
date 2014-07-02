@@ -3,6 +3,8 @@ class Trial < ActiveRecord::Base
 	validates :nct_id, uniqueness: true
 	before_save :enumerate_age_value
 
+	has_many :sites
+
 	scope :control?, -> (vt) {
 		if vt == "control"
 			where(healthy_volunteers: "Accepts Healthy Volunteers")
@@ -81,7 +83,6 @@ class Trial < ActiveRecord::Base
 		end
 	 }
 
-	has_many :sites
 
 	def output_criteria
 		inclusion.gsub(/(^|\n\n)(\s)*(-)?(.*)(Exclusion|Inclusion) Criteria(.*)\n\n/i,'<h4>\4\5 Criteria\6</h4>').gsub("\n\n","<br>")
