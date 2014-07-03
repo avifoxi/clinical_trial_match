@@ -10,12 +10,16 @@ describe Site do
 	end
 
 	it "is invalid without a status" do
-		# binding.pry
 		expect(FactoryGirl.build(:site, :status => "")).to_not be_valid
 	end
 
+	it "formats address for geocoding" do
+		site = FactoryGirl.build(:site, :city => "Hoboken",:state => "New Jersey",:country => "US",:zip_code => "07030")
+		expect(site.address).to eq("Hoboken, New Jersey, US, 07030")
+	end
+
 	it "geocodes valid locations" do
-		site = FactoryGirl.create(:site, :street_address => "205 Hudson St", :city => "Hoboken",:state => "New Jersey",:country => "US",:zip_code => "07030")
+		site = FactoryGirl.create(:site, :city => "Hoboken",:state => "New Jersey",:country => "US",:zip_code => "07030")
 		expect(site.latitude).to eq(40.737159)
 		expect(site.longitude).to eq(-74.030962)
 	end
