@@ -49,18 +49,14 @@ class TrialsController < ApplicationController
       @sites = @trial.sites.sort_by{|site| site.distance_from(session[:coordinates])}
     end
 
+    # BUILDING PREVIOUS NEXT BUTTONS OFF OF USERS SEARCH QUERY
     trial_ids = Rails.cache.read('trial_ids')
     tmpIndex = trial_ids.index(params[:id].to_i)
-    tmpIndexLength = trial_ids.count
 
-    #@TODO Refactor this
-    if tmpIndex == (tmpIndexLength-1)
-      @next_trial = trial_ids[0]
-    else
+    if trial_ids && tmpIndex
       @next_trial = trial_ids[tmpIndex+1]
+      @previous_trial = trial_ids[tmpIndex-1]
     end
-
-    @previous_trial = trial_ids[tmpIndex-1]
 
   end
 
