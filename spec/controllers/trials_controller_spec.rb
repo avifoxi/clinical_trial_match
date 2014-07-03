@@ -45,10 +45,18 @@ describe TrialsController do
 			get :show, id: trial
 			expect(response).to render_template :show
 		end
+
+		it "assigns the requested trial's sites to @sites" do
+			trial = create(:trial)
+			site1 = create(:site)
+			site2 = create(:site)
+			site3 = create(:site)
+			trial.sites << site1 << site2 << site3
+
+			get :show, id: trial
+			expect(assigns(:sites)). to eq [site1,site2,site3]
+		end
+
 	end
 
-	describe 'GET #new' do
-		it "assigns a new Trial to @trial"
-		it "renders the :new template"
-	end
 end
