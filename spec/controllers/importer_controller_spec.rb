@@ -33,6 +33,17 @@ describe ImporterController do
 
 	describe 'POST #delete_all' do
 		it "deletes all trials and sites" do
+			trial = create(:trial)
+			site = create(:site)
+			post :delete_all
+			expect(Trial.all).to be_empty
+			expect(Site.all).to be_empty
+
+		end
+
+		it "redirects to importer#show" do
+			post :delete_all
+			expect( response). to redirect_to importer_path
 		end
 	end
 
