@@ -115,14 +115,5 @@ ActiveRecord::Schema.define(version: 20131130222819) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  create_table "zipcodes", force: true do |t|
-    t.integer  "zipcode"
-    t.string   "city"
-    t.string   "state"
-    t.float    "latitude"
-    t.float    "longitude"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
 end
