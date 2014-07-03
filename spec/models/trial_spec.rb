@@ -1,35 +1,33 @@
 require "rails_helper"
 
 describe Trial do
-	context "has validation that" do
-		it "is valid with all required attributes" do
-			expect(FactoryGirl.build(:trial)).to be_valid
-		end
+	it "is valid with all required attributes" do
+		expect(FactoryGirl.build(:trial)).to be_valid
+	end
 
-		it "requires a title" do
-			expect(FactoryGirl.build(:trial, :title => "")).to_not be_valid
-		end
+	it "is invalid without a title" do
+		expect(FactoryGirl.build(:trial, :title => "")).to_not be_valid
+	end
 
-		it "requires a description" do
-			expect(FactoryGirl.build(:trial, :description => "")).to_not be_valid
-		end
+	it "is invalid without a description" do
+		expect(FactoryGirl.build(:trial, :description => "")).to_not be_valid
+	end
 
-		it "requires a sponsor" do
-			expect(FactoryGirl.build(:trial, :sponsor => "")).to_not be_valid
-		end
+	it "is invalid without a sponsor" do
+		expect(FactoryGirl.build(:trial, :sponsor => "")).to_not be_valid
+	end
 
-		it "requires a focus" do
-			expect(FactoryGirl.build(:trial, :focus => "")).to_not be_valid
-		end
+	it "is invalid without a focus" do
+		expect(FactoryGirl.build(:trial, :focus => "")).to_not be_valid
+	end
 
-		it "requires a unique nct_id value" do
-			FactoryGirl.create(:trial, :nct_id => "12345")
-			expect(FactoryGirl.build(:trial, :nct_id => "12345")).to_not be_valid
-		end
+	it "is invalid without a unique nct_id value" do
+		FactoryGirl.create(:trial, :nct_id => "12345")
+		expect(FactoryGirl.build(:trial, :nct_id => "12345")).to_not be_valid
+	end
 
-		it "requires an inclusion criteria" do
-			expect(FactoryGirl.build(:trial, :inclusion => "")).to_not be_valid
-		end
+	it "is invalid without an inclusion criteria" do
+		expect(FactoryGirl.build(:trial, :inclusion => "")).to_not be_valid
 	end
 
 	context "appends html markup" do

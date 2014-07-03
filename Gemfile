@@ -57,11 +57,15 @@ group :development, :test do
  	gem 'guard-rspec'
   gem 'pry'
   gem 'rspec-rails'
-
   gem 'factory_girl_rails'
-  gem 'faker'
 end
 
+group :test do
+  gem 'faker'
+  gem "capybara"
+  gem "launchy"
+  # gem "selenium-webdriver"
+end
 
 group :production do
 	gem 'rails_12factor'

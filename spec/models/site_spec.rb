@@ -1,19 +1,17 @@
 require "rails_helper"
 
 describe Site do
-	context "has validation that" do
-		it "is valid with required attributes" do
-			expect(FactoryGirl.build(:site)).to be_valid
-		end
+	it "is valid with required attributes" do
+		expect(FactoryGirl.build(:site)).to be_valid
+	end
 
-		it "requires a facility" do
-			expect(FactoryGirl.build(:site, :facility => "")).to_not be_valid
-		end
+	it "is invalid without a facility" do
+		expect(FactoryGirl.build(:site, :facility => "")).to_not be_valid
+	end
 
-		it "requires a status" do
-			# binding.pry
-			expect(FactoryGirl.build(:site, :status => "")).to_not be_valid
-		end
+	it "is invalid without a status" do
+		# binding.pry
+		expect(FactoryGirl.build(:site, :status => "")).to_not be_valid
 	end
 
 	it "geocodes valid locations" do
