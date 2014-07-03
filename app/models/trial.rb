@@ -5,6 +5,10 @@ class Trial < ActiveRecord::Base
 
 	has_many :sites
 
+	scope :search_for, -> (query) {
+		where('title ILIKE :query OR description ILIKE :query', query: "%#{query}%")
+	}
+
 	scope :control?, -> (vt) {
 		if vt == "control"
 			where(healthy_volunteers: "Accepts Healthy Volunteers")
@@ -18,11 +22,6 @@ class Trial < ActiveRecord::Base
 
 		end
 	}
-	scope :search_for, -> (query) {
-		where('title ILIKE :query OR description ILIKE :query', query: "%#{query}%")
-		#where('originalminage ILIKE :query OR originalmaxage ILIKE :query', query: "%#{query}%")
-	}
-
 
 	scope :age, -> (age){
 		unless age.blank?

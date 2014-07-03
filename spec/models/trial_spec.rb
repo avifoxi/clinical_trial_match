@@ -67,5 +67,11 @@ describe Trial do
 			expect(Trial.search_for("specialword")).to eq [trial1,trial2]
 		end
 
+		it "by #control?" do
+			trial1 = FactoryGirl.create(:trial, :healthy_volunteers => "Accepts Healthy Volunteers")
+			trial2 = FactoryGirl.create(:trial)
+			expect(Trial.control?("control")).to eq [trial1]
+		end
+
 	end
 end
