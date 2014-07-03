@@ -73,5 +73,33 @@ describe Trial do
 			expect(Trial.control?("control")).to eq [trial1]
 		end
 
+		context "by #gender" do
+			it "filters for males" do
+				trial1 = FactoryGirl.create(:trial, :gender => "Male")
+				trial2 = FactoryGirl.create(:trial, :gender => "Female")
+				expect(Trial.gender("male")).to eq [trial1]
+			end
+
+			it "filters for females" do
+				trial1 = FactoryGirl.create(:trial, :gender => "Male")
+				trial2 = FactoryGirl.create(:trial, :gender => "Female")
+				expect(Trial.gender("female")).to eq [trial2]
+			end
+
+			it "displays all with both filter" do
+				trial1 = FactoryGirl.create(:trial, :gender => "Male")
+				trial2 = FactoryGirl.create(:trial, :gender => "Female")
+				expect(Trial.gender("both")).to eq [trial1,trial2]
+			end
+		end
+
+	# scope :gender, -> (gender) {
+	# 	if gender == "male"
+	# 		where(gender: ["Male", "Both"])
+	# 	elsif gender == "female"
+	# 		where(gender: ["Female", "Both"])
+
+	# 	end
+	# }
 	end
 end

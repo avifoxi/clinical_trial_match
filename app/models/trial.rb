@@ -14,6 +14,7 @@ class Trial < ActiveRecord::Base
 			where(healthy_volunteers: "Accepts Healthy Volunteers")
 		end
 	}
+
 	scope :gender, -> (gender) {
 		if gender == "male"
 			where(gender: ["Male", "Both"])
