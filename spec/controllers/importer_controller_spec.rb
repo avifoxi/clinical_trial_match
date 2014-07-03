@@ -47,5 +47,20 @@ describe ImporterController do
 		end
 	end
 
+	describe 'POST #clear_date' do
+		it "clears valid trials, sites and import date" do
+			build(:import)
+			post :clear_date
+			expect(Import.last.datetime).to eq("Mon, 1 Jan 1900 00:00:04 UTC +00:00")
+			expect(Import.last.valid_trials).to eq(0)
+			expect(Import.last.valid_sites).to eq(0)
+		end
+
+		it "redirects to importer#show" do
+			post :delete_all
+			expect( response). to redirect_to importer_path
+		end
+	end
+
 
 end

@@ -157,8 +157,8 @@ class ImporterController < ApplicationController
   def clear_date
   	@import = Import.new
   	@import.datetime = "Mon, 1 Jan 1900 00:00:04 UTC +00:00"
-	@import.valid_trials = 0
-	@import.valid_sites = 0
+		@import.valid_trials = 0
+		@import.valid_sites = 0
   	@import.save
   	redirect_to importer_path, notice: "The last import date was reset."
   end
