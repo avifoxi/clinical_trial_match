@@ -58,4 +58,14 @@ describe Trial do
 			expect(trial.maximum_age).to eq(2)
 		end
 	end
+
+	context "filters trial listing" do
+		it "by #search_for" do
+			trial1 = FactoryGirl.create(:trial, :title => "This is SpecialWord im looking up.")
+			trial2 = FactoryGirl.create(:trial, :description => "This is specialword im looking up.")
+			trial3 = FactoryGirl.create(:trial)
+			expect(Trial.search_for("specialword")).to eq [trial1,trial2]
+		end
+
+	end
 end
