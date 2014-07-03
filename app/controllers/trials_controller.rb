@@ -42,7 +42,6 @@ class TrialsController < ApplicationController
 
 
   def show
-    @trial = Trial.find params[:id]
     # @TODO? I'm running distance_from in both the controller and view. Should this just be done in the model??
     if session[:coordinates].blank?
       @sites = @trial.sites
