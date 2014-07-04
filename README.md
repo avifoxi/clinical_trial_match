@@ -1,6 +1,7 @@
 Clinical Trial Match
 =======
 
+https://travis-ci.org/mwenger1/clinical_trial_match.svg
 
 Project Goal
 -----------
@@ -19,3 +20,5 @@ How to Get Involved
 -----------
 Pull requests are welcome!
 Feel free to contact me offline at mwenger at michaeljfox.org
+
+
