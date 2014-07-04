@@ -62,5 +62,6 @@ describe ImporterController do
 		end
 	end
 
+	describe 'POST #run'
 
 end
