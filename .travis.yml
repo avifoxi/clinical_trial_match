@@ -4,7 +4,7 @@ rvm:
 deploy:
   provider: heroku
   api_key:
-    secure: iImCosdiPuZ+0dLR/Yg9+y0AOBaAjs3otKlQqFueEcL1cxISPz5ldw/Kqdf4/+0GuV5s4N2UDT90F4dUqBHhCmvOpuo2iktbAbGAcu6HM3G/EoqEkCN9De/BXlgAYO+sxdY/sfOQReTIOjc07ctcMvcn7xTc8eVEy9cRxWAJtoU=
+    secure: GznzLnRyUdQJPF72uyoDzLFMDdHwrPzI7neIEEnqrlqhYh2YMClCP7GjQkWu0bfF1gaEC5AxC4yFxIAJLzd4jzmRUb/ru6OhIZCsFXF6VwK0Wyw2a9XFTO5S1ncvV34hBuGc9iKHdjjyV2q0CurSHv1Ukgh2I8e0rZtbhqU+77c=
   app: clinical-trial-match
   on:
     repo: mwenger1/clinical_trial_match
