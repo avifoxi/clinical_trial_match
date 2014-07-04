@@ -4,11 +4,7 @@ rvm:
 deploy:
   provider: heroku
   api_key:
-    secure: GznzLnRyUdQJPF72uyoDzLFMDdHwrPzI7neIEEnqrlqhYh2YMClCP7GjQkWu0bfF1gaEC5AxC4yFxIAJLzd4jzmRUb/ru6OhIZCsFXF6VwK0Wyw2a9XFTO5S1ncvV34hBuGc9iKHdjjyV2q0CurSHv1Ukgh2I8e0rZtbhqU+77c=
-  app:
-  	master: clinical-trial-match
-    development: dev-clinical-trial-match
-    staging: st-clinical-trial-match
-    celiac-foundation: celiac-foundation
+    secure: UJsiZbd0MdoLFS6hA38Z3KW78qNJew0CyWoigbv7sv5uE/eMMPJZMDffEkfQ90jQU+iL3S5XUPbHpZmJph/qBUl1CqMLrPI99B6+7/vOzs30ZfQdTEx+UVyl011/3w9MKazphrKr7OpjwIVHwWA7uNxDbPZWEgR3mZlXEQs0qJE=
+  app: clinical-trial-match
   on:
     repo: mwenger1/clinical_trial_match
