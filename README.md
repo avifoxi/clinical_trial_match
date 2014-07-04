@@ -1,7 +1,7 @@
 Clinical Trial Match
 =======
 
-https://travis-ci.org/mwenger1/clinical_trial_match.svg
+[![Build Status](https://travis-ci.org/mwenger1/clinical_trial_match.svg?branch=master)](https://travis-ci.org/mwenger1/clinical_trial_match)
 
 Project Goal
 -----------
