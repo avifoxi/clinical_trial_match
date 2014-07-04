@@ -5,6 +5,6 @@ deploy:
   provider: heroku
   api_key:
     secure: NAIs1ov3drKlLZyzW7Ve1DDQhlzBj8+FU9Prewo1J0ebhqQ8QP3Kk9Z+MlncI5E0tIEXLjtBEOe3PL9HpOoaHw7pMkAHQS05QthGj3I8Cjv6GxTn6P6XXMLGEY9f1Te80TXrbuG2183HynE3Atm0M+axquzTbaUsOQ/TdctFd1U=
-  app: clinical_trial_match
+  app: clinical-trial-match
   on:
     repo: mwenger1/clinical_trial_match
