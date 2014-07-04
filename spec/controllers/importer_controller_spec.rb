@@ -1,11 +1,19 @@
 require "rails_helper"
 
 describe ImporterController do
+
+	before :each do
+		@user = build(:user)
+		@user.skip_confirmation!
+		@user.save
+		sign_in @user
+	end
+
 	describe 'GET #show' do
 		it "displays the last import" do
 			import = create(:import)
 			get :show
-			expect(assigns(:import)). to eq(import)
+			expect(assigns(:import)).to eq(import)
 		end
 
 		it "displays all trials count" do
