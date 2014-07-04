@@ -5,6 +5,10 @@ deploy:
   provider: heroku
   api_key:
     secure: GznzLnRyUdQJPF72uyoDzLFMDdHwrPzI7neIEEnqrlqhYh2YMClCP7GjQkWu0bfF1gaEC5AxC4yFxIAJLzd4jzmRUb/ru6OhIZCsFXF6VwK0Wyw2a9XFTO5S1ncvV34hBuGc9iKHdjjyV2q0CurSHv1Ukgh2I8e0rZtbhqU+77c=
-  app: clinical-trial-match
+  app:
+  	master: clinical-trial-match
+    development: dev-clinical-trial-match
+    staging: st-clinical-trial-match
+    celiac-foundation: celiac-foundation
   on:
     repo: mwenger1/clinical_trial_match
