@@ -91,5 +91,16 @@ describe Trial do
 				expect(Trial.gender("both")).to eq [@trial1,@trial2]
 			end
 		end
+
+		context "by #age" do
+			it "filters by minimum_age" do
+				trial_17 = create(:trial, :originalminage => "17", :originalmaxage => "100")
+				trial_18 = create(:trial, :originalminage => "18", :originalmaxage => "100")
+				trial_19 = create(:trial, :originalminage => "19", :originalmaxage => "100")
+				binding.pry
+				expect(Trial.age(18)).to eq [trial_18,trial_19]
+			end
+		end
+
 	end
 end

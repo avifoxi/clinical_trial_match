@@ -11,6 +11,8 @@ FactoryGirl.define do
     originalmaxage { Faker::Number.number(2) }
     inclusion { Faker::Lorem.sentence }
     detailed_description{ Faker::Lorem.sentence }
+    minimum_age { Faker::Number.number(2) }
+    maximum_age { Faker::Number.number(2) }
 
   end
 end
