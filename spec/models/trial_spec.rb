@@ -97,7 +97,14 @@ describe Trial do
 				trial_17 = create(:trial, :originalminage => "17", :originalmaxage => "100")
 				trial_18 = create(:trial, :originalminage => "18", :originalmaxage => "100")
 				trial_19 = create(:trial, :originalminage => "19", :originalmaxage => "100")
-				expect(Trial.age(18)).to eq [trial_18,trial_19]
+				expect(Trial.age(18)).to match_array([trial_17,trial_18])
+			end
+
+			it "filters by maximum_age" do
+				trial_59 = create(:trial, :originalminage => "17", :originalmaxage => "59")
+				trial_60 = create(:trial, :originalminage => "17", :originalmaxage => "60")
+				trial_61 = create(:trial, :originalminage => "17", :originalmaxage => "61")
+				expect(Trial.age(60)).to match_array([trial_60,trial_61])
 			end
 		end
 
