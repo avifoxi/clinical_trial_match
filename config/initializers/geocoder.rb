@@ -1,12 +1,12 @@
 Geocoder.configure(
-
+  :timeout => 5
   # geocoding service (see below for supported options):
-  :google => {
-    :timeout => 5
-  },
-  :yandex => {
-    :timeout => 5
-  }
+  # :google => {
+  #   :timeout => 5
+  # },
+  # :yandex => {
+  #   :timeout => 5
+  # }
 
   # # geocoding service request timeout, in seconds (default 3):
 

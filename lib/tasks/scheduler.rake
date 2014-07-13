@@ -39,6 +39,7 @@ task :import_trials => :environment do
 
     encoded_condition = URI.encode(ClinicalTrialMatcher::Application.config.importer_query)
     remove_unknown = ClinicalTrialMatcher::Application.config.remove_unknown
+    #http://clinicaltrials.gov/ct2/results/download?down_stds=all&down_typ=study&recr=Open&no_unk=Y&cond=brain%20tumor&show_down=Y
     starting_url = "http://clinicaltrials.gov/ct2/results/download?down_stds=all&down_typ=study&recr=Open&no_unk=#{remove_unknown}&cond=#{encoded_condition}&show_down=Y"
     `curl "#{starting_url}" > "#{Rails.root}/tmp/trial_download.zip"`
 
