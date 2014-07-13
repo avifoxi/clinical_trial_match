@@ -8,7 +8,6 @@ deploy:
   app:
   	master: clinical-trial-match
     development: dev-clinical-trial-match
-    celiac-foundation: celiac-foundation
     staging: st-clinical-trial-match
 
   on:
