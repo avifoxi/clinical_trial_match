@@ -108,5 +108,27 @@ describe Trial do
 			end
 		end
 
+		context "by #type" do
+			before(:each) do
+				@trial_interventional = create(:trial, :study_type => "Interventional")
+				@trial_observational = create(:trial, :study_type => "Observational")
+				@trial_patient_registry = create(:trial, :study_type => "Observational [Patient Registry]")
+			end
+
+			it "returns all if no filter parameter" do
+				expect(Trial.type("all")).to match_array([@trial_interventional,@trial_observational,@trial_patient_registry])
+			end
+
+			it "filters by interventional" do
+				expect(Trial.type("int")).to match_array([@trial_interventional])
+			end
+
+			it "filters by observational" do
+				# Patient registry is a match for observational
+				expect(Trial.type("obs")).to match_array([@trial_observational,@trial_patient_registry])
+			end
+
+		end
+
 	end
 end
