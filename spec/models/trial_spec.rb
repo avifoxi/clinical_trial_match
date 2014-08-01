@@ -130,5 +130,61 @@ describe Trial do
 
 		end
 
+		context "by #phase" do
+			before(:each) do
+				@trial_phase_0 = create(:trial, :phase => "Phase 0")
+				@trial_phase_1 = create(:trial, :phase => "Phase 1")
+				@trial_phase_1_2 = create(:trial, :phase => "Phase 1/Phase 2")
+				@trial_phase_2 = create(:trial, :phase => "Phase 2")
+				@trial_phase_2_3 = create(:trial, :phase => "Phase 2/Phase 3")
+				@trial_phase_3 = create(:trial, :phase => "Phase 3")
+				@trial_phase_3_4 = create(:trial, :phase => "Phase 3/Phase 4")
+				@trial_phase_4 = create(:trial, :phase => "Phase 4")
+			end
+
+			it "returns all if all phases are selected" do
+				expect(Trial.phase("all")).to match_array([@trial_phase_0,@trial_phase_1,@trial_phase_1_2,@trial_phase_2,@trial_phase_2_3,@trial_phase_3,@trial_phase_3_4,@trial_phase_4])
+			end
+
+			it "returns phase 0 if selected" do
+				expect(Trial.phase("0")).to match_array([@trial_phase_0])
+			end
+
+			it "returns phase 1 if selected" do
+				expect(Trial.phase("1")).to match_array([@trial_phase_1,@trial_phase_1_2])
+			end
+
+			it "returns phase 2 if selected" do
+				expect(Trial.phase("2")).to match_array([@trial_phase_2,@trial_phase_1_2,@trial_phase_2_3])
+			end
+
+			it "returns phase 3 if selected" do
+				expect(Trial.phase("3")).to match_array([@trial_phase_3,@trial_phase_2_3,@trial_phase_3_4])
+			end
+
+			it "returns phase 4 if selected" do
+				expect(Trial.phase("4")).to match_array([@trial_phase_4,@trial_phase_3_4])
+			end
+		end
+
+		context "by fda" do
+			before(:each) do
+				@is_fda_regulated = create(:trial, :is_fda_regulated => "Yes")
+				@is_not_fda_regulated = create(:trial, :is_fda_regulated => "No")
+			end
+
+			it "returns all fda types if all is selected" do
+				expect(Trial.fda("all")).to match_array([@is_fda_regulated,@is_not_fda_regulated])
+			end
+
+			it "returns fda only if fda is selected" do
+				expect(Trial.fda("reg")).to match_array([@is_fda_regulated])
+			end
+
+			it "returns non-fda only if non-fdafda is selected" do
+				expect(Trial.fda("nreg")).to match_array([@is_not_fda_regulated])
+			end
+		end
+
 	end
 end
