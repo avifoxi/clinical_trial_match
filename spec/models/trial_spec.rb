@@ -167,7 +167,7 @@ describe Trial do
 			end
 		end
 
-		context "by fda" do
+		context "by #fda" do
 			before(:each) do
 				@is_fda_regulated = create(:trial, :is_fda_regulated => "Yes")
 				@is_not_fda_regulated = create(:trial, :is_fda_regulated => "No")
@@ -186,5 +186,24 @@ describe Trial do
 			end
 		end
 
+		context "by #focus" do
+			before(:each) do
+				@focus_radial = create(:trial, :focus => "Radiotherapy")
+				@focus_scoliosis = create(:trial, :focus => "Scoliosis")
+			end
+
+			it "returns all if no focus is passed" do
+				expect(Trial.focus("")).to match_array([@focus_radial,@focus_scoliosis])
+			end
+
+			it "returns Radiotherapy if Radiotherapy is passed" do
+				expect(Trial.focus("Radiotherapy")).to match_array([@focus_radial])
+			end
+
+			it "returns Scoliosis if Scoliosis is passed" do
+				expect(Trial.focus("Scoliosis")).to match_array([@focus_scoliosis])
+			end
+
+		end
 	end
 end
