@@ -205,5 +205,19 @@ describe Trial do
 			end
 
 		end
+
+		context "by #close_to" do
+			before(:each) do
+				@nyc_coordinates = [40.7552681, -73.9966888]
+				@nyc_site = create(:trial).sites<<(create(:site,:city => "New York",:state => "New York",:country => "US",:zip_code => "10018"))
+				@hoboken_site = create(:trial).sites<<(create(:site,:city => "Hoboken",:state => "New Jersey",:country => "US",:zip_code => "07030"))
+			end
+
+			it "returns all trials if no location filter is passed" do
+				expect(Trial.close_to(@nyc_coordinates)).to match_array([@nyc_site,@hoboken_site])
+			end
+		end
+
+
 	end
 end
