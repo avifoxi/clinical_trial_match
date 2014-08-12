@@ -23,4 +23,15 @@ describe Site do
 		expect(site.latitude).to eq(40.737159)
 		expect(site.longitude).to eq(-74.030962)
 	end
+
+	context "has associations" do
+		let(:trial) {build(:trial)}
+
+		it "belongs to a trial" do
+			c = create(:site)
+			c.trial = trial
+			c.save
+			expect(c).to be_valid
+		end
+	end
 end
