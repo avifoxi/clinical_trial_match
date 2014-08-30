@@ -72,7 +72,6 @@ group :production do
   gem 'unicorn'
 end
 
-
 group :development do
   gem 'jazz_hands'
 
@@ -80,7 +79,7 @@ group :development do
   gem 'meta_request'
 
   # better error pages in dev
-
+  gem 'rails-erd'
   gem 'better_errors'
   gem 'binding_of_caller'
   # dump data into seed files for production

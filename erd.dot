@@ -1,0 +1,122 @@
+digraph ClinicalTrialMatcher {
+rankdir = "LR";
+ranksep = "0.5";
+nodesep = "0.4";
+pad = "0.4,0.4";
+margin = "0,0";
+concentrate = "true";
+labelloc = "t";
+fontsize = "13";
+fontname = "Arial Bold";
+node[ shape  =  "Mrecord" , fontsize  =  "10" , fontname  =  "Arial" , margin  =  "0.07,0.05" , penwidth  =  "1.0"];
+edge[ fontname  =  "Arial" , fontsize  =  "7" , dir  =  "both" , arrowsize  =  "0.9" , penwidth  =  "1.0" , labelangle  =  "32" , labeldistance  =  "1.8"];
+label = "ClinicalTrialMatcher domain model\n\n";
+m_Focus [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Focus</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="term">term <font face="Arial Italic" color="grey60">string</font></td></tr>
+</table>
+>];
+m_Import [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Import</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="datetime">datetime <font face="Arial Italic" color="grey60">datetime ∗</font></td></tr>
+  <tr><td align="left" width="130" port="valid_sites">valid_sites <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
+  <tr><td align="left" width="130" port="valid_trials">valid_trials <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
+</table>
+>];
+m_Site [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Site</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="city">city <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="contact_name">contact_name <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="contact_phone">contact_phone <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="contact_phone_email">contact_phone_email <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="contact_phone_ext">contact_phone_ext <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="country">country <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="facility">facility <font face="Arial Italic" color="grey60">text ∗</font></td></tr>
+  <tr><td align="left" width="130" port="latitude">latitude <font face="Arial Italic" color="grey60">float</font></td></tr>
+  <tr><td align="left" width="130" port="longitude">longitude <font face="Arial Italic" color="grey60">float</font></td></tr>
+  <tr><td align="left" width="130" port="state">state <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="status">status <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="street_address">street_address <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="street_address2">street_address2 <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="zip_code">zip_code <font face="Arial Italic" color="grey60">text</font></td></tr>
+</table>
+>];
+m_Trial [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">Trial</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="agency_class">agency_class <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="condition">condition <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="country">country <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="description">description <font face="Arial Italic" color="grey60">text ∗</font></td></tr>
+  <tr><td align="left" width="130" port="detailed_description">detailed_description <font face="Arial Italic" color="grey60">text ∗</font></td></tr>
+  <tr><td align="left" width="130" port="exclusion">exclusion <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="firstreceived_date">firstreceived_date <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="focus">focus <font face="Arial Italic" color="grey60">text ∗</font></td></tr>
+  <tr><td align="left" width="130" port="gender">gender <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="has_expanded_access">has_expanded_access <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="healthy_volunteers">healthy_volunteers <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="inclusion">inclusion <font face="Arial Italic" color="grey60">text ∗</font></td></tr>
+  <tr><td align="left" width="130" port="is_fda_regulated">is_fda_regulated <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="keyword">keyword <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="lastchanged_date">lastchanged_date <font face="Arial Italic" color="grey60">date</font></td></tr>
+  <tr><td align="left" width="130" port="link_description">link_description <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="link_url">link_url <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="location_countries">location_countries <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="maximum_age">maximum_age <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
+  <tr><td align="left" width="130" port="minimum_age">minimum_age <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
+  <tr><td align="left" width="130" port="nct_id">nct_id <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="official_title">official_title <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="originalmaxage">originalmaxage <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="originalminage">originalminage <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="overall_contact_email">overall_contact_email <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="overall_contact_name">overall_contact_name <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="overall_contact_phone">overall_contact_phone <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="overall_status">overall_status <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="phase">phase <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="sponsor">sponsor <font face="Arial Italic" color="grey60">text ∗</font></td></tr>
+  <tr><td align="left" width="130" port="study_type">study_type <font face="Arial Italic" color="grey60">text</font></td></tr>
+  <tr><td align="left" width="130" port="title">title <font face="Arial Italic" color="grey60">text ∗</font></td></tr>
+  <tr><td align="left" width="130" port="verification_date">verification_date <font face="Arial Italic" color="grey60">date</font></td></tr>
+</table>
+>];
+m_User [label = <<table border="0" align="center" cellspacing="0.5" cellpadding="0" width="134">
+  <tr><td align="center" valign="bottom" width="130"><font face="Arial Bold" point-size="11">User</font></td></tr>
+</table>
+|
+<table border="0" align="left" cellspacing="2" cellpadding="0" width="134">
+  <tr><td align="left" width="130" port="confirmation_sent_at">confirmation_sent_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="confirmation_token">confirmation_token <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="confirmed_at">confirmed_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="current_sign_in_at">current_sign_in_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="current_sign_in_ip">current_sign_in_ip <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="email">email <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="encrypted_password">encrypted_password <font face="Arial Italic" color="grey60">string ∗</font></td></tr>
+  <tr><td align="left" width="130" port="last_sign_in_at">last_sign_in_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="last_sign_in_ip">last_sign_in_ip <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="latitude">latitude <font face="Arial Italic" color="grey60">float</font></td></tr>
+  <tr><td align="left" width="130" port="longitude">longitude <font face="Arial Italic" color="grey60">float</font></td></tr>
+  <tr><td align="left" width="130" port="provider">provider <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="remember_created_at">remember_created_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="reset_password_sent_at">reset_password_sent_at <font face="Arial Italic" color="grey60">datetime</font></td></tr>
+  <tr><td align="left" width="130" port="reset_password_token">reset_password_token <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="sign_in_count">sign_in_count <font face="Arial Italic" color="grey60">integer ∗</font></td></tr>
+  <tr><td align="left" width="130" port="token">token <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="token_secret">token_secret <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="uid">uid <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="unconfirmed_email">unconfirmed_email <font face="Arial Italic" color="grey60">string</font></td></tr>
+  <tr><td align="left" width="130" port="username">username <font face="Arial Italic" color="grey60">string</font></td></tr>
+</table>
+>];
+  m_Trial -> m_Site [arrowhead = "normal", arrowtail = "none", weight = "2"];
+}
