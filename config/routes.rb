@@ -1,5 +1,4 @@
 ClinicalTrialMatcher::Application.routes.draw do
-
   root "homepage#index"
   get "/blog" => "homepage#blog"
   get "/faq" => "homepage#faq"
