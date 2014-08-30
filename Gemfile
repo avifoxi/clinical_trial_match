@@ -55,6 +55,7 @@ group :development, :test do
 	# Use Guard + Addons for automated test runs
   gem 'guard'
  	gem 'guard-rspec'
+  gem 'terminal-notifier-guard'
   gem 'pry'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
