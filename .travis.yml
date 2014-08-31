@@ -7,7 +7,10 @@ deploy:
     secure: BatuYro7a4cOv7gZdMgpxGXpM5Nl+3WZ4K0eLost2Qkjms3vqQAhUvQ5R/YXY51MtQjQF0ghPyQjvfBAqw/cpi36iOdaqibdy1dBHKcfjXakApygao3vFk7vJnoabcRzhxthck1XBjieAOWd4BZRNUY6BQVCGhzuHVVcSuUCPt8=
   app:
     master: clinical-trial-match
-  	staging: st-clinical-trial-match
+    staging: st-clinical-trial-match
     development: dev-clinical-trial-match
   on:
     repo: mwenger1/clinical_trial_match
+notifications:
+  slack:
+    secure: GUV4tqAoAsAhhi24gQaUd5Mt6h0CbN7JnLyxLE7UKEd4q4oU+3/BgGdTWDl4mHEm+6NlckzOjKyHOKlza/2HSZf4qoC/n7wLDJPi0eCOA0an/ERGKgEc4VSgEAahi439GGj32Pv55ZUXkM9qhpO1JMx7pQ/T9xLN9K/fQUbHW+o=
