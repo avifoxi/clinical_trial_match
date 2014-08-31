@@ -209,13 +209,36 @@ describe Trial do
 		context "by #close_to" do
 			before(:each) do
 				@nyc_coordinates = [40.7552681, -73.9966888]
-				@nyc_site = create(:trial).sites<<(create(:site,:city => "New York",:state => "New York",:country => "US",:zip_code => "10018"))
-				@hoboken_site = create(:trial).sites<<(create(:site,:city => "Hoboken",:state => "New Jersey",:country => "US",:zip_code => "07030"))
+				@sf_coordinates = [37.774929, -122.419416]
+				@north_dakota_coordinates = [48.657407, -100.019531]
+
+				@nyc_trial = create(:trial)
+				@nyc_trial.sites<<(create(:site,:city => "New York",:state => "New York",:country => "United States",:zip_code => "10018"))
+
+				@hoboken_trial = create(:trial)
+				@hoboken_trial.sites<<(create(:site,:city => "Hoboken",:state => "New Jersey",:country => "United States",:zip_code => "07030"))
+
+				@sf_trial = create(:trial)
+				@sf_trial.sites<<(create(:site,:city => "San Francisco",:state => "California",:country => "United States",:zip_code => "91604"))
+
 			end
 
 			it "returns all trials if no location filter is passed" do
-				expect(Trial.close_to(@nyc_coordinates)).to match_array([@nyc_site,@hoboken_site])
+				expect(Trial.close_to("")).to match_array([@nyc_trial, @hoboken_trial, @sf_trial])
 			end
+
+			it "returns tri state area results if filtered by NYC 100 miles" do
+				expect(Trial.close_to(@nyc_coordinates, 100)).to match_array([@nyc_trial, @hoboken_trial])
+			end
+
+			it "returns only Bay Area results if filtered by SF 100 miles" do
+				expect(Trial.close_to(@sf_coordinates, 100)).to match_array([@sf_trial])
+			end
+
+			it "returns no results if filtered by remote location" do
+				expect(Trial.close_to(@north_dakota_coordinates, 100)).to match_array([])
+			end
+
 		end
 
 
