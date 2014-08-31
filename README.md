@@ -19,6 +19,6 @@ This project is a white labeled platform that leverages the clinicaltrials.gov d
 How to Get Involved
 -----------
 Pull requests are welcome!
-Feel free to contact me offline at mwenger at michaeljfox.org
+Feel free to contact me offline at michaelwenger27 at gmail.com
 
 
