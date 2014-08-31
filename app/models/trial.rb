@@ -77,7 +77,9 @@ class Trial < ActiveRecord::Base
 			return
 		else
 			tmpIdArray = close_to_logic(coordinates, td)
-			unless tmpIdArray.blank?
+			if tmpIdArray.blank?
+				where("1 = 0")
+			else
 				where(id: tmpIdArray)
 			end
 		end
