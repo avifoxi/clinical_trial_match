@@ -12,5 +12,6 @@ deploy:
   on:
     repo: mwenger1/clinical_trial_match
 notifications:
+  email: false
   slack:
     secure: QeiDe7/uJ4OIVIYQf4iOhCym3IW3nZxw+czl0zoWlWW7aHWSFb6uVKW0omgM5k7M24a13zbKk9OvgHgw/q/SstbxovmC/w9vTU+JqP6912XzP0yg4yQJWooz/DtNraUHDBMAOBxqeH3kNJMlw1qJmZTRz2li1v3IwSquf2Lrt8E=
