@@ -32,11 +32,10 @@ feature "Search", :type => :feature do
 
 Capybara.javascript_driver = :webkit
 	scenario "links to trial details with site info", js: true do
-		@test = create(:trial)
-		@test.sites<<(create(:site,:city => "New York",:state => "New York",:country => "United States",:zip_code => "10018"))
-binding.pry
 		visit "/trials"
-		expect(page).to have_text(@test.title)
+
+
+		expect(page).to have_text(@nyc_trial.title)
 
 		# click_link @nyc_trial.title
 		# expect(page).to have_text(@nyc_trial.description)
