@@ -48,7 +48,7 @@ gem 'will_paginate'
 gem 'carmen'
 
 # Tool to open zip files
-gem "zipruby"
+# gem "zipruby"
 
 group :development, :test do
 	gem 'dotenv-rails'
@@ -67,7 +67,7 @@ group :test do
   gem 'faker'
   gem "capybara"
   gem "launchy"
-  # gem "selenium-webdriver"
+  gem "selenium-webdriver"
 end
 
 group :production do
