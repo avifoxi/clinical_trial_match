@@ -31,7 +31,6 @@ ready = function() {
 
     $(".close").on("click",function(){
         $(this).parent().fadeOut();
-        $.cookie('signup_div_viewed', true);
     });
 
     $('#choose_focus').click(function(e) {
@@ -44,7 +43,7 @@ ready = function() {
             modal: true,
             open: function() {
                 return $(this).load(url + ' #content');
-                
+
             },
             close: function() {
                 $('#dialog-form').remove();
