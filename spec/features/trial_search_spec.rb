@@ -30,24 +30,20 @@ feature "Search", :type => :feature do
 		expect(page).to have_text("Your search returned no results")
 	end
 
-Capybara.javascript_driver = :webkit
 	scenario "links to trial details with site info", js: true do
 		visit "/trials"
 
-
 		expect(page).to have_text(@nyc_trial.title)
 
-		# click_link @nyc_trial.title
-		# expect(page).to have_text(@nyc_trial.description)
+		click_link @nyc_trial.title
+		expect(page).to have_text(@nyc_trial.description)
 
-		# # expect(page).to_not have_text(@nyc_trial.output_description)
-		# # find("#expandFullLink").click
-		# # expect(page).to have_text(@nyc_trial.output_description)
+		expect(page).to_not have_text(@nyc_trial.output_description)
+		find("#expandFullLink").click
+		expect(page).to have_text(@nyc_trial.output_description)
 
-
-		# expect(page).to_not have_text(@nyc_trial.output_criteria)
-		# find("#expandExclusion").click
-		# expect(page).to have_text(@nyc_trial.output_criteria)
-
+		expect(page).to_not have_text(@nyc_trial.output_criteria)
+		find("#expandExclusion").click
+		expect(page).to have_text(@nyc_trial.output_criteria)
 	end
 end
