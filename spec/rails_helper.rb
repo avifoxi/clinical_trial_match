@@ -29,7 +29,7 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = false
   config.include FactoryGirl::Syntax::Methods
 
-  Capybara.javascript_driver = :webkit
+  Capybara.javascript_driver = :selenium
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
@@ -41,7 +41,7 @@ RSpec.configure do |config|
   end
 
   config.before(:each) do
-    if Capybara.current_driver == :webkit
+    if Capybara.current_driver == :selenium
       DatabaseCleaner.strategy = :truncation
     else
       DatabaseCleaner.strategy = :transaction
