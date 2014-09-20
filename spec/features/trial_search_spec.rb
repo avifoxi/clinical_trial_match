@@ -12,7 +12,7 @@ feature "Search", :type => :feature do
 		@sf_trial.sites<<(create(:site,:city => "San Francisco",:state => "California",:country => "United States",:zip_code => "91604"))
 	end
 
-	scenario "provides valid zip code search filters" do
+	scenario "provides valid zip code search with flash of matching trial count" do
 		visit "/trials"
 
 		fill_in "pc", with: "07030"
