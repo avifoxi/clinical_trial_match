@@ -15,3 +15,4 @@
 //= require turbolinks
 //= require_tree .
 //= trials.js
+//= require bootstrap-sprockets
