@@ -1,0 +1,68 @@
+$primaryTextColor: #4C6E7E;
+$primaryDarkTextColor: #214A5F;
+$secondaryTextColor: #585858;
+$titleTextColor: #808080;
+
+$normalTextSize: 18px;
+$mediumTextSize: 16px;
+$smallTextSize: 14px;
+
+$btnBackground: #b5b6b5;
+$btnBackgroundHighlight: #a5a6a6;
+$btnBorder: #989898;
+
+$btnPrimaryBackground: #3a7ba2;
+$btnPrimaryBackgroundHighlight: #204b61;
+$btnCtaTop: #fbb01c;
+$btnCtaBottom: #ff7500;
+$btnPreviousTop: #fbd30e;
+$btnPreviousBottom: #fba600;
+$btnDangerBackground: #f6672f;
+$btnDangerBackgroundHighlight: #c0372f;
+
+$finishedColor: #fddba6;
+
+$primaryNavTextColor: #999999;
+
+$outerSpacing: 20px;
+
+$navbarLinkColorHover: #777;
+
+// Curtain state colors
+$closedColor: #F8F8F8;
+$closedHoverColor: #DDF1FA;
+$openActiveColor: $closedHoverColor;
+$completedClosedColor: #FDECD5;
+$completedOpenColor: $completedClosedColor;
+
+// Form checkbox/radio button colors
+$inputTextColor: #585858;
+$inputDefaultColor: #E6E6E6;
+$inputHoverColor: #DDF1FA;
+$inputSelectedColor: #FDDAA9;
+
+// Expandable div colors
+$expandableHoverColor: #DDF1FA;
+$expandableCompletedColor: #FEECD2;
+
+// Progress nav tab colors
+$navTabDefaultColor: #BBB;
+$navTabActiveColor: #4A8BBB;
+$navTabCompletedColor: #93BBD6;
+
+// table overrides
+$tableBackgroundAccent: #f5f5f5;
+
+// Dropdown menu colors
+$dropdownBackground: #E6E6E6;
+$dropdownBorder: #E6E6E6;
+$dropdownDividerTop: #D5D5D5;
+$dropdownDividerBottom: #D5D5D5;
+$dropdownLinkColor: #214A5F;
+$dropdownLinkColorHover: #214A5F;
+$dropdownLinkColorActive: #214A5F;
+$dropdownLinkBackgroundHover: #FFF;
+$dropdownLinkBackgroundActive: #E6E6E6;
+
+// panel and popover colors
+$panelBackgroundColor: #fafafa;

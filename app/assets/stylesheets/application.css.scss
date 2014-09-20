@@ -12,6 +12,7 @@
  *= require_tree .
  */
 
+  @import "variables";
   @import "bootstrap-sprockets";
   @import "bootstrap_and_overrides";
 
@@ -67,7 +68,7 @@
     float: left;
     width: 20%;
     margin: 40px 30px 0px 0px;
-    background: #F6F6F6;
+    background: $primaryTextColor;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     padding: 20px;
