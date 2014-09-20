@@ -30,6 +30,7 @@ ready = function() {
     });
 
     $(".close").on("click",function(){
+        $.cookie('signup_div_viewed', true);
         $(this).parent().fadeOut();
     });
 

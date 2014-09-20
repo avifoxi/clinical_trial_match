@@ -13,14 +13,13 @@
   </p>
   <% else %>
 
-
-  <% if params[:commit].present? %>
-  <div class="blueAlertDiv">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-    <p>You match to <span style="font-weight:bold;"><%= @trials.total_entries.to_i %> trials</span> today! Come back as new trials come online all the time!
-     <!--  <%= link_to "Create a profile", new_user_registration_path, class: "bold" %> to receive emails of future matches. --></p>
-      </div>
+  <% if flash[:notice] %>
+    <div>
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+      <div class="notice"><%= flash[:notice] %></div>
+    </div>
   <% end %>
+
 
   <%= form_tag("", method: "get", id: "ot") do %>
 

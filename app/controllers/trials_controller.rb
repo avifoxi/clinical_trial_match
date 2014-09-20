@@ -14,6 +14,10 @@ class TrialsController < ApplicationController
 
     @trials = Trial.search_for(params[:q]).age(params[:age]).control?(params[:vt]).gender(params[:gender]).type(params[:ty]).phase(params[:ph]).fda(params[:fda]).focus(params[:focus]).close_to(session[:coordinates], params[:td]).order(params[:ot]||"lastchanged_date DESC").paginate(:page => params[:page], :per_page => 10)
 
+    if params[:commit].present? && cookies[:signup_div_viewed].blank?
+      flash[:notice] = "<p>You match to <span style='font-weight:bold;'>#{@trials.total_entries.to_i} trials</span> today! Come back as new trials come online all the time!".html_safe
+    end
+
     trial_ids_array = []
     # @TODO: NEED TO REFACTOR TO PREVENT QUERYING THIS TWICE JUST BECAUSE OF PAGINATE.
     # @TODO: DO I NEED MEMCACHE TO SOLVE FOR RAILS.CACHE
@@ -28,14 +32,6 @@ class TrialsController < ApplicationController
     session[:gender] = params[:gender]
     session[:pc] = params[:pc]
     session[:td] = params[:td]
-
-    # @trials.each do |trial|
-    #   trial.sites.sort_by{|site| site.distance_from(session[:coordinates])}
-    # end
-
-    # rescue # Need to name raised error
-    #   flash.alert = "Your zip code is not valid!"
-    #   render "index"
 
   end
 

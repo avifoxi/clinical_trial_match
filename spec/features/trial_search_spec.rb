@@ -19,6 +19,8 @@ feature "Search", :type => :feature do
 		click_button "Search Trials"
 
 		expect(page).to have_text("You match to 2 trials today")
+		click_link ".close"
+		expect(page).to_not have_text("You match to 2 trials today")
 	end
 
 	scenario "provides error handling if no matches" do
@@ -34,6 +36,8 @@ feature "Search", :type => :feature do
 		visit "/trials"
 
 		expect(page).to have_text(@nyc_trial.title)
+		expect(page).to have_text(@hoboken_trial.title)
+		expect(page).to have_text(@sf_trial.title)
 
 		click_link @nyc_trial.title
 		expect(page).to have_text(@nyc_trial.description)
