@@ -1,100 +1,103 @@
+<div class="row">
+  <div class="search_bar col-xs-12 col-sm-3">
+    <%= render "searchform" %>
+  </div>
 
-<div class="search_bar">
-  <%= render "searchform" %></div>
+  <div class="col-xs-12 col-sm-9">
+    <div class="col-sm-11 col-sm-offset-1"
+      <% if @trials.nil? || @trials.empty? %>
+      <h3>Your search returned no results.</h3>
+      <p>
+        To match to trials, widen your search or expand your travel distance.
+    <!--     <%= link_to "create an account", new_user_registration_path %>
+        and receive emails about future trials that you may be eligible for. -->
+      </p>
+      <% else %>
 
-<div class="search_results">
-
-  <% if @trials.nil? || @trials.empty? %>
-  <h3>Your search returned no results.</h3>
-  <p>
-    To match to trials, widen your search or expand your travel distance.
-<!--     <%= link_to "create an account", new_user_registration_path %>
-    and receive emails about future trials that you may be eligible for. -->
-  </p>
-  <% else %>
-
-  <% if flash[:notice] %>
-    <div>
-      <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-      <div class="notice"><%= flash[:notice] %></div>
-    </div>
-  <% end %>
-
-
-  <%= form_tag("", method: "get", id: "ot") do %>
-
-  <%= hidden_field_tag 'pc', params[:pc], id: "filter_capture1" %>
-  <%= hidden_field_tag 'td', params[:td], id: "filter_capture2" %>
-  <%= hidden_field_tag 'age', params[:age], id: "filter_capture3" %>
-  <%= hidden_field_tag 'vt', params[:vt], id: "filter_capture4" %>
-  <%= hidden_field_tag 'gender', params[:gender], id: "filter_capture5" %>
-  <%= hidden_field_tag 'q', params[:q], id: "filter_capture6" %>
-  <%= hidden_field_tag 'mf', params[:mf], id: "filter_capture7" %>
-  <%= hidden_field_tag 'ty', params[:ty], id: "filter_capture8" %>
-  <%= hidden_field_tag 'ph', params[:ph], id: "filter_capture9" %>
-  <%= hidden_field_tag 'fda', params[:fda], id: "filter_capture10" %>
-  <%= hidden_field_tag 'focus', params[:focus], id: "filter_capture11" %>
-
-
-  <p style="text-align:right;">
-    Displaying
-    <%=@trials.total_entries %>
-    <%= @trials.total_entries.to_i >
-    1 ? "trials" : "trial" %> by
-    <%= select_tag(:ot, options_for_select([['Last Updated', 'lastchanged_date DESC'], ['A-Z', 'title ASC']], params[:ot]||'abc' ), :onchange =>("$('#ot').submit()")) %></p>
-
-
-  <% end %>
-
-<% if @trials.count > 10 %>
-  <div class="pagination2" style="margin-bottom:20px;">
-    <%= will_paginate @trials, :container =>false %></div>
-<% end %>
-
-  <% @trials.each do |trial| %>
-  <div class="trialResults hoverableLink">
-  <h3><%= link_to trial.title, trial %></h3>
-<% unless trial.sites.first.blank? || params[:pc].blank? %>
-      <% @site = trial.sites.near(session[:coordinates],params[:td]).first %>
-          <% unless @site.blank? %>
-<h4>Closest Site:</h4>
-            <p><%= "#{@site.facility} - (#{@site.distance_from(session[:coordinates]).round()} miles away)"%></p>
-       <% end %>
-      <% end %>
-      <div class="clear"></div>
-           <h4>Tumor Type:</h4>
-        <p>
-          <%= (trial.focus.length >= 160)? "#{trial.focus[0..160]}...":"#{trial.focus[0..160]}" %>
-          </p>
-<div class="clear"></div>
-<div class="inline">
-       <h4>Type:</h4>
-        <p>
-          <%= trial.study_type %></p>
-      <h4>Phase:</h4>
-        <p>
-          <%= trial.phase %></p>
-      <h4>Controls:</h4>
-        <p>
-          <%= (trial.healthy_volunteers == "Accepts Healthy Volunteers") ? "Yes" : "No"   %></p>
-     <h4>Gender:</h4>
-        <p>
-          <%= trial.gender %></p>
-      <h4>Age:</h4>
-        <p>
-          <%= trial.originalminage.to_s + " - " + trial.originalmaxage.to_s %></p>
-          <div class="clear"></div>
+      <% if flash[:notice] %>
+        <div>
+          <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <div class="notice"><%= flash[:notice] %></div>
         </div>
-</div>
-      <!-- @TODO? LETS GET THIS IN THE CONTROLLER -->
+      <% end %>
 
-  <% end %>
 
-<% if @trials.count > 10 %>
-  <div class="pagination2" style="margin-bottom:20px;">
-    <%= will_paginate @trials, :container =>false %></div>
-<% end %>
+      <%= form_tag("", method: "get", id: "ot") do %>
 
-  <% end%></div>
+      <%= hidden_field_tag 'pc', params[:pc], id: "filter_capture1" %>
+      <%= hidden_field_tag 'td', params[:td], id: "filter_capture2" %>
+      <%= hidden_field_tag 'age', params[:age], id: "filter_capture3" %>
+      <%= hidden_field_tag 'vt', params[:vt], id: "filter_capture4" %>
+      <%= hidden_field_tag 'gender', params[:gender], id: "filter_capture5" %>
+      <%= hidden_field_tag 'q', params[:q], id: "filter_capture6" %>
+      <%= hidden_field_tag 'mf', params[:mf], id: "filter_capture7" %>
+      <%= hidden_field_tag 'ty', params[:ty], id: "filter_capture8" %>
+      <%= hidden_field_tag 'ph', params[:ph], id: "filter_capture9" %>
+      <%= hidden_field_tag 'fda', params[:fda], id: "filter_capture10" %>
+      <%= hidden_field_tag 'focus', params[:focus], id: "filter_capture11" %>
+
+
+      <p style="text-align:right;">
+        Displaying
+        <%=@trials.total_entries %>
+        <%= @trials.total_entries.to_i >
+        1 ? "trials" : "trial" %> by
+        <%= select_tag(:ot, options_for_select([['Last Updated', 'lastchanged_date DESC'], ['A-Z', 'title ASC']], params[:ot]||'abc' ), :onchange =>("$('#ot').submit()")) %></p>
+
+
+      <% end %>
+
+    <% if @trials.count > 10 %>
+      <div class="pagination2" style="margin-bottom:20px;">
+        <%= will_paginate @trials, :container =>false %></div>
+    <% end %>
+
+      <% @trials.each do |trial| %>
+      <div class="trialResults hoverableLink">
+      <h3><%= link_to trial.title, trial %></h3>
+    <% unless trial.sites.first.blank? || params[:pc].blank? %>
+          <% @site = trial.sites.near(session[:coordinates],params[:td]).first %>
+              <% unless @site.blank? %>
+    <h4>Closest Site:</h4>
+                <p><%= "#{@site.facility} - (#{@site.distance_from(session[:coordinates]).round()} miles away)"%></p>
+           <% end %>
+          <% end %>
+          <div class="clear"></div>
+               <h4>Tumor Type:</h4>
+            <p>
+              <%= (trial.focus.length >= 160)? "#{trial.focus[0..160]}...":"#{trial.focus[0..160]}" %>
+              </p>
+    <div class="clear"></div>
+    <div class="inline">
+           <h4>Type:</h4>
+            <p>
+              <%= trial.study_type %></p>
+          <h4>Phase:</h4>
+            <p>
+              <%= trial.phase %></p>
+          <h4>Controls:</h4>
+            <p>
+              <%= (trial.healthy_volunteers == "Accepts Healthy Volunteers") ? "Yes" : "No"   %></p>
+         <h4>Gender:</h4>
+            <p>
+              <%= trial.gender %></p>
+          <h4>Age:</h4>
+            <p>
+              <%= trial.originalminage.to_s + " - " + trial.originalmaxage.to_s %></p>
+              <div class="clear"></div>
+            </div>
+    </div>
+          <!-- @TODO? LETS GET THIS IN THE CONTROLLER -->
+
+      <% end %>
+
+    <% if @trials.count > 10 %>
+      <div class="pagination2" style="margin-bottom:20px;">
+        <%= will_paginate @trials, :container =>false %></div>
+    <% end %>
+
+      <% end%>
+    </div>
+  </div>
 
 <div class="clear"></div>

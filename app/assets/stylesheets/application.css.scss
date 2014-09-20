@@ -12,13 +12,16 @@
 
   @import "variables";
 
-.twitter-bootstrap-prefix {
+.twitter-bootstrap-namespace {
   @import "bootstrap-sprockets";
   @import "bootstrap";
 }
 
 /* Landscape phones and down */
 
+.container{
+  max-width: $maxPageWidth;
+}
 .pull_right {
   float:right;
 }
@@ -65,13 +68,9 @@
     }
 
   .search_bar {
-    float: left;
-    width: 20%;
-    margin: 40px 30px 0px 0px;
     background: $primaryTextColor;
     border-radius: 5px;
     -webkit-border-radius: 5px;
-    padding: 20px;
     border: 1px solid #E5E5E5;
   }
 
@@ -84,10 +83,6 @@
     display: inline;
   }
 
-  .search_results{
-    float:left;
-    width: 70%;
-  }
   .clear{
     clear:both;
     margin: 0px;
