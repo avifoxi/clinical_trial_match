@@ -2,7 +2,6 @@ class TrialsController < ApplicationController
   before_action :set_trial, only: [:show]
 
   def index
-    @focuses = Focus.all
     session[:coordinates] = ""
     unless params[:pc].blank?
         session[:coordinates] =  Geocoder.coordinates("#{params[:pc]}, United States", :lookup => :google)
