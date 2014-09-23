@@ -2,13 +2,14 @@ class TrialsController < ApplicationController
   before_action :set_trial, only: [:show]
 
   def index
-    session[:coordinates] = ""
-    unless params[:pc].blank?
+    if params[:pc].blank?
         session[:coordinates] =  Geocoder.coordinates("#{params[:pc]}, United States", :lookup => :google)
         if session[:coordinates].nil? || session[:coordinates] == [39.49593, -98.990005]
           flash.now[:alert] = "We are unable to detect a zip code for your location at this time."
           AdminAlerts.no_lat_long(params[:pc]).deliver
         end
+    else
+      session[:coordinates] = ""
     end
 
     @trials = Trial.search_for(params[:q]).age(params[:age]).control?(params[:vt]).gender(params[:gender]).type(params[:ty]).phase(params[:ph]).fda(params[:fda]).focus(params[:focus]).close_to(session[:coordinates], params[:td]).order(params[:ot]||"lastchanged_date DESC").paginate(:page => params[:page], :per_page => 10)
