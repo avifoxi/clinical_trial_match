@@ -75,7 +75,7 @@ namespace :importer do
           puts "Looping through #{n} xml files"
           n.times do |i| # 5.times replace digit with number
             break if (args['number_of_trials'].present? && (@trial_counter >= args['number_of_trials'].to_i))
-            puts "Processing xml file:#{i} "
+            puts "Processing xml file:#{i} / #{n}"
 
             entry_name = ar.get_name(i) # get entry name from archive
             f = ar.fopen(entry_name)
