@@ -66,7 +66,7 @@ namespace :importer do
         `curl "#{starting_url}" > "#{Rails.root}/tmp/trial_download.zip"`
 
         @trial_counter = 0
-        site_counter = 0
+        @site_counter = 0
 
         last_import_date = Import.last.datetime unless Import.last.nil?
 
@@ -122,9 +122,9 @@ namespace :importer do
                 @trial.originalmaxage = set_maxvalue_for_age(get_from_xpath("//maximum_age",root))
 
                 doc.xpath("//location",root).each do |site|
-                    puts ">>>Processing site:#{site_counter} "
+                    puts ">>>Processing site:#{@site_counter} "
 
-                    site_counter += 1
+                    @site_counter += 1
                     @site = Site.new
                     @site.facility = get_from_xpath("facility/name",site)
                     @site.city = get_from_xpath("facility/address/city",site)
@@ -157,12 +157,16 @@ namespace :importer do
         @import = Import.new
         @import.datetime = Time.new
         @import.valid_trials = @trial_counter
-        @import.valid_sites = site_counter
+        @import.valid_sites = @site_counter
         @import.save
 
         puts "Sending import email"
         Newmatch.new_match_report.deliver
+
+        puts "Deleting zip folder"
+        File.delete("#{Rails.root}/tmp/trial_download.zip") if File.exist?("#{Rails.root}/tmp/trial_download.zip")
         puts "Completed task"
+
     end
 
 end
