@@ -49,7 +49,7 @@ gem 'will_paginate'
 gem 'carmen'
 
 # Tool to open zip files
-# gem "zipruby"
+  gem "zipruby"
 
 group :development, :test do
 	gem 'dotenv-rails'
