@@ -102,6 +102,7 @@ namespace :importer do
             temp_nct_id = get_from_xpath("//nct_id",root)
 
             if last_import_date.present? && (get_from_xpath("lastchanged_date",root) < last_import_date)
+                puts "Fail: Changes Older than Last Import"
                 f.close
             else
                 @trial = Trial.where("nct_id = ?", temp_nct_id).present? ? Trial.where("nct_id = ?", temp_nct_id).first : Trial.new
@@ -140,7 +141,7 @@ namespace :importer do
                 @trial.originalmaxage = set_maxvalue_for_age(get_from_xpath("//maximum_age",root))
 
                 doc.xpath("//location",root).each do |site|
-                    puts ">>>Processing site:#{@site_counter} "
+                    puts "   Processing site:#{@site_counter} "
 
                     @site_counter += 1
                     @site = Site.new
@@ -160,10 +161,17 @@ namespace :importer do
                     @site.save
                 end
 
+                if @trial.save
+                    @trial_counter += 1
+                    puts "Saved Successfully"
 
-                @trial.save
-                @trial_counter += 1
+                else
+                    @trial.valid?
+                    puts "Failed to save:#{@trial.errors} "
+                end
+
                 f.close
+                puts "\n"
             end
 
           end
@@ -171,6 +179,7 @@ namespace :importer do
         end
 
         puts "Processed #{@trial_counter} trials"
+        puts "There are #{Trial.all.count} trials total"
         # TIMESTAMP THE IMPORT RUN
         @import = Import.new
         @import.datetime = Time.new
