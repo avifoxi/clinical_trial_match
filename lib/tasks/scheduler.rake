@@ -85,16 +85,16 @@ namespace :importer do
 
         @trial_counter = 0
         @site_counter = 0
-
         last_import_date = Import.last.datetime unless Import.last.nil?
 
         Zip::Archive.open("#{Rails.root}/tmp/trial_download.zip") do |ar|
-          n = ar.num_files # number of entries
-          puts "Looping through #{n} xml files"
-          n.times do |i| # 5.times replace digit with number
-            break if (args['number_of_trials'].present? && (@trial_counter >= args['number_of_trials'].to_i))
-            puts "Processing xml file:#{i} / #{n}"
+          @num_xml_files = ar.num_files # number of entries
+          puts "Looping through #{@num_xml_files} xml files"
 
+          @num_xml_files.times do |i|
+            break if (args['number_of_trials'].present? && (@trial_counter >= args['number_of_trials'].to_i))
+
+            puts "Processing xml file:#{i} / #{@num_xml_files}"
             entry_name = ar.get_name(i) # get entry name from archive
             f = ar.fopen(entry_name)
             doc = Nokogiri::XML(f)
@@ -182,6 +182,7 @@ namespace :importer do
         puts "There are #{Trial.all.count} trials total"
         # TIMESTAMP THE IMPORT RUN
         @import = Import.new
+        @import.num_xml_files = @num_xml_files
         @import.datetime = Time.new
         @import.valid_trials = @trial_counter
         @import.valid_sites = @site_counter
