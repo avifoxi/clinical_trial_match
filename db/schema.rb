@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131130222819) do
+ActiveRecord::Schema.define(version: 20140930230346) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 20131130222819) do
     t.datetime "datetime"
     t.integer  "valid_trials"
     t.integer  "valid_sites"
+    t.string   "unmodified_trials"
+    t.string   "invalid_trials"
   end
 
   create_table "sites", force: true do |t|
@@ -46,6 +48,24 @@ ActiveRecord::Schema.define(version: 20131130222819) do
     t.string   "contact_phone"
     t.string   "contact_phone_ext"
     t.string   "contact_phone_email"
+  end
+
+  create_table "surveys", force: true do |t|
+    t.integer  "workout"
+    t.string   "workout_intensity"
+    t.string   "nutrition"
+    t.boolean  "water"
+    t.boolean  "activity"
+    t.boolean  "vitamin"
+    t.boolean  "mitzvah"
+    t.boolean  "stressed"
+    t.boolean  "hungover"
+    t.boolean  "tired"
+    t.boolean  "depressed"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "no_television"
+    t.string   "four_hour_work_week"
   end
 
   create_table "trials", force: true do |t|
@@ -115,5 +135,19 @@ ActiveRecord::Schema.define(version: 20131130222819) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "workouts", force: true do |t|
+    t.integer "week"
+    t.string  "workout"
+  end
+
+  create_table "zipcodes", force: true do |t|
+    t.integer  "zipcode"
+    t.string   "city"
+    t.string   "state"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
