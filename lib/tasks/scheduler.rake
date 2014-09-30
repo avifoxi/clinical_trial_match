@@ -10,6 +10,17 @@ namespace :importer do
         puts "The Date is now #{Import.last.datetime}"
     end
 
+    task :rewind_import_date,[:amount_of_time] => :environment do |t, args|
+        puts "Resetting date to your parameter"
+        @import = Import.new
+        @import.datetime = Time.now - args['amount_of_time']
+        @import.valid_trials = 0
+        @import.valid_sites = 0
+        @import.save
+        puts "The Date is now #{Import.last.datetime}"
+    end
+
+
     desc "Task for Heroku Scheduler to clear all trials"
     task :delete_trials => :environment do
         puts "Removing all trials"
