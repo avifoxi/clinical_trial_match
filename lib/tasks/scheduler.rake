@@ -83,7 +83,14 @@ namespace :importer do
         puts "Downloading file"
         `curl "#{starting_url}" > "#{Rails.root}/tmp/trial_download.zip"`
 
-        @trial_counter = 0
+        # @modified_trial_counter tracks new and updated trials
+        # @unmodified_trial_counter tracks trials that have not been updated since last import
+        # @invalid_trial_counter tracks recently modified trials that are incomplete
+        @modified_trial_counter = 0
+        @unmodified_trial_counter = 0
+        @invalid_trial_counter = 0
+
+
         @site_counter = 0
         last_import_date = Import.last.datetime unless Import.last.nil?
 
@@ -92,7 +99,7 @@ namespace :importer do
           puts "Looping through #{@num_xml_files} xml files"
 
           @num_xml_files.times do |i|
-            break if (args['number_of_trials'].present? && (@trial_counter >= args['number_of_trials'].to_i))
+            break if (args['number_of_trials'].present? && (@modified_trial_counter >= args['number_of_trials'].to_i))
 
             puts "Processing xml file:#{i} / #{@num_xml_files}"
             entry_name = ar.get_name(i) # get entry name from archive
@@ -103,6 +110,7 @@ namespace :importer do
 
             if last_import_date.present? && (get_from_xpath("lastchanged_date",root) < last_import_date)
                 puts "Fail: Changes Older than Last Import"
+                @unmodified_trial_counter += 1
                 f.close
             else
                 @trial = Trial.where("nct_id = ?", temp_nct_id).present? ? Trial.where("nct_id = ?", temp_nct_id).first : Trial.new
@@ -162,12 +170,13 @@ namespace :importer do
                 end
 
                 if @trial.save
-                    @trial_counter += 1
+                    @modified_trial_counter += 1
                     puts "Saved Successfully"
 
                 else
                     @trial.valid?
                     puts "Failed to save:#{@trial.errors} "
+                    @invalid_trial_counter += 1
                 end
 
                 f.close
@@ -178,13 +187,15 @@ namespace :importer do
 
         end
 
-        puts "Processed #{@trial_counter} trials"
+        puts "Processed #{@modified_trial_counter} trials"
         puts "There are #{Trial.all.count} trials total"
         # TIMESTAMP THE IMPORT RUN
         @import = Import.new
         @import.num_xml_files = @num_xml_files
         @import.datetime = Time.new
-        @import.valid_trials = @trial_counter
+        @import.valid_trials = @modified_trial_counter
+        @import.unmodified_trials = @unmodified_trial_counter
+        @import.invalid_trials = @invalid_trial_counter
         @import.valid_sites = @site_counter
         @import.save
 
