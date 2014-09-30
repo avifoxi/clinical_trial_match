@@ -14,8 +14,8 @@
 
     <p><%= "There are currently:" %></p>
     <ul>
-      <li><%=#{@trials.all.count} trials %></li>
-      <li><%=#{@sites.all.count} sites. NOTE: #{@sites.not_geocoded.count} do not have lat/long%></li>
+      <li><%="#{@trials.all.count} trials" %></li>
+      <li><%="#{@sites.all.count} sites. NOTE: #{@sites.not_geocoded.count} do not have lat/long"%></li>
     </ul>
   </body>
 </html>
