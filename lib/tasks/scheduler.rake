@@ -10,6 +10,13 @@ namespace :importer do
         puts "The Date is now #{Import.last.datetime}"
     end
 
+    desc "Task for Heroku Scheduler to send test email"
+    task :test_email => :environment do
+        puts "Sending Email"
+        Newmatch.new_match_report.deliver
+    end
+
+    desc "Rewind import date based on time parameter"
     task :rewind_import_date,[:amount_of_time] => :environment do |t, args|
         puts "Resetting date to your parameter"
         @import = Import.new
@@ -172,6 +179,7 @@ namespace :importer do
         @import.save
 
         puts "Sending import email"
+
         Newmatch.new_match_report.deliver
 
         puts "Deleting zip folder"
