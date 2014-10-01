@@ -5,17 +5,22 @@
   </head>
   <body>
 
-  <% unless @import.blank? %>
+  <% if @import.present? %>
   	<p>The importer ran at <span style="font-weight:bold;"><%= @import.datetime.strftime("%m/%d/%Y %H:%M")%></span></p>
 
-  	<p><%= "#{pluralize(@import.valid_trials, "trial")} and #{pluralize(@import.valid_sites,"sites")} were added and/or updated in the last import run." %></p>
-  <% end %>
+  	<ul>
+      <li><%= "#{@import.num_xml_files} trials are in ClinicalTrials.gov" %></li>
+      <li><%= "#{@import.unmodified_trials} trials had already been imported to the application and there were no changes since the last import" %></li>
+      <li><%= "#{@import.invalid_trials} trials were ignored for being invalid (i.e. not having a title)" %></li>
+      <li><%= "#{@import.valid_trials} trials were added or updated (#{@import.valid_sites} sites)" %></li>
 
+  <% end %>
 
     <p><%= "There are currently:" %></p>
     <ul>
       <li><%="#{@trials.all.count} trials" %></li>
       <li><%="#{@sites.all.count} sites. NOTE: #{@sites.not_geocoded.count} do not have lat/long"%></li>
     </ul>
+
   </body>
 </html>
