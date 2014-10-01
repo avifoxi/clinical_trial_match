@@ -187,8 +187,6 @@ namespace :importer do
 
         end
 
-        puts "Processed #{@modified_trial_counter} trials"
-        puts "There are #{Trial.all.count} trials total"
         # TIMESTAMP THE IMPORT RUN
         @import = Import.new
         @import.num_xml_files = @num_xml_files
@@ -199,6 +197,14 @@ namespace :importer do
         @import.valid_sites = @site_counter
         @import.save
 
+        puts "Modified #{@modified_trial_counter} trials"
+        puts "Unmodified #{@unmodified_trial_counter} trials"
+        puts "Invalid #{@invalid_trial_counter} trials"
+        puts "_________________________________________"
+        puts "Total: #{@modified_trial_counter.to_i + @unmodified_trial_counter.to_i + @invalid_trial_counter.to_i} trials"
+        puts "Processed #{@num_xml_files} xml files"
+
+        puts "There are #{Trial.all.count} trials total"
         puts "Sending import email"
 
         Newmatch.new_match_report.deliver

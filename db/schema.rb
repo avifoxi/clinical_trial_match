@@ -26,8 +26,9 @@ ActiveRecord::Schema.define(version: 20140930230346) do
     t.datetime "datetime"
     t.integer  "valid_trials"
     t.integer  "valid_sites"
-    t.string   "unmodified_trials"
-    t.string   "invalid_trials"
+    t.integer  "unmodified_trials"
+    t.integer  "invalid_trials"
+    t.integer  "num_xml_files"
   end
 
   create_table "sites", force: true do |t|
