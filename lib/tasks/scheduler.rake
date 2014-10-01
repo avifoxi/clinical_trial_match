@@ -175,7 +175,8 @@ namespace :importer do
 
                 else
                     @trial.valid?
-                    puts "Failed to save:#{@trial.errors} "
+                    puts "Failed to save"
+                    @trial.errors.each {|error| puts error }
                     @invalid_trial_counter += 1
                 end
 

@@ -1,5 +1,5 @@
 class Trial < ActiveRecord::Base
-	validates :title, :description, :detailed_description, :inclusion, presence: true
+	validates :title, presence: true
 	validates :nct_id, uniqueness: true
 	before_save :enumerate_age_value
 
