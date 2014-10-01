@@ -16,10 +16,10 @@
 
   <% end %>
 
-    <p><%= "There are currently:" %></p>
+    <p><%= "The application database currently has:" %></p>
     <ul>
       <li><%="#{@trials.all.count} trials" %></li>
-      <li><%="#{@sites.all.count} sites. NOTE: #{@sites.not_geocoded.count} do not have lat/long"%></li>
+      <li><%="#{@sites.all.count} sites. (#{@sites.not_geocoded.count} do not have lat/long)"%></li>
     </ul>
 
   </body>
