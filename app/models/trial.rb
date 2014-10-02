@@ -10,9 +10,7 @@ class Trial < ActiveRecord::Base
 	}
 
 	scope :control?, -> (vt) {
-		if vt == "control"
-			where(healthy_volunteers: "Accepts Healthy Volunteers")
-		end
+		where(healthy_volunteers: "Accepts Healthy Volunteers") if vt == "control"
 	}
 
 	scope :gender, -> (gender) {
@@ -25,9 +23,7 @@ class Trial < ActiveRecord::Base
 	}
 
 	scope :age, -> (age){
-		unless age.blank?
-			where("minimum_age <= ? and maximum_age >= ?", age, age)
-		end
+		where("minimum_age <= ? and maximum_age >= ?", age, age) unless age.blank?
 	}
 
 	scope :type, -> (type){

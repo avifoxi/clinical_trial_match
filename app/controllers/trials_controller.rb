@@ -30,7 +30,7 @@ class TrialsController < ApplicationController
     trial_ids_array = []
     # @TODO: NEED TO REFACTOR TO PREVENT QUERYING THIS TWICE JUST BECAUSE OF PAGINATE.
     # @TODO: DO I NEED MEMCACHE TO SOLVE FOR RAILS.CACHE
-    @all_trials = Trial.search_for(params[:q]).age(params[:age]).control?(params[:vt]).gender(params[:gender]).type(params[:ty]).phase(params[:ph]).fda(params[:fda]).focus(params[:focus]).close_to(session[:coordinates], params[:td]).order(params[:ot]||"lastchanged_date DESC")
+    @all_trials = Trial.search_for(params[:q]).age(params[:age]).control?(params[:vt]).gender(params[:gender]).type(params[:ty]).phase(params[:ph]).fda(params[:fda]).close_to(session[:coordinates], params[:td]).order(params[:ot]||"lastchanged_date DESC")
     @all_trials.each {|trial| trial_ids_array << trial.id}
     Rails.cache.write('trial_ids', trial_ids_array)
 
