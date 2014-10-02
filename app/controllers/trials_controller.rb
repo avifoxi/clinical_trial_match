@@ -11,7 +11,18 @@ class TrialsController < ApplicationController
         end
     end
 
-    @trials = Trial.search_for(params[:q]).age(params[:age]).control?(params[:vt]).gender(params[:gender]).type(params[:ty]).phase(params[:ph]).fda(params[:fda]).focus(params[:focus]).close_to(session[:coordinates], params[:td]).order(params[:ot]||"lastchanged_date DESC").paginate(:page => params[:page], :per_page => 10)
+    @trials = Trial
+      .search_for(params[:q])
+      .age(params[:age])
+      .control?(params[:vt])
+      .gender(params[:gender])
+      .type(params[:ty])
+      .phase(params[:ph])
+      .fda(params[:fda])
+      .focus(params[:focus])
+      .close_to(session[:coordinates], params[:td])
+      .order(params[:ot]||"lastchanged_date DESC")
+      .paginate(:page => params[:page], :per_page => 10)
 
     if params[:commit].present? && cookies[:signup_div_viewed].blank?
       flash[:notice] = "<p>You match to <span style='font-weight:bold;'>#{@trials.total_entries.to_i} trials</span> today! Come back as new trials come online all the time!".html_safe
