@@ -63,9 +63,7 @@ class Trial < ActiveRecord::Base
 	}
 
 	scope :close_to, -> (coordinates, td=100) {
-		if coordinates.blank?
-			return
-		else
+		unless coordinates.blank?
 			tmpIdArray = close_to_logic(coordinates, td)
 			if tmpIdArray.blank?
 				where("1 = 0")
