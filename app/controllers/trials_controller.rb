@@ -19,7 +19,6 @@ class TrialsController < ApplicationController
       .type(params[:ty])
       .phase(params[:ph])
       .fda(params[:fda])
-      .focus(params[:focus])
       .close_to(session[:coordinates], params[:td])
       .order(params[:ot]||"lastchanged_date DESC")
       .paginate(:page => params[:page], :per_page => 10)

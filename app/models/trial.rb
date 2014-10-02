@@ -6,7 +6,7 @@ class Trial < ActiveRecord::Base
 	has_many :sites
 
 	scope :search_for, -> (query) {
-		where('title ILIKE :query OR description ILIKE :query', query: "%#{query}%")
+		where('title ILIKE :query OR description ILIKE :query OR focus ILIKE :query', query: "%#{query}%")
 	}
 
 	scope :control?, -> (vt) {
@@ -63,12 +63,6 @@ class Trial < ActiveRecord::Base
 			elsif fda == "nreg"
 				where(is_fda_regulated: "No")
 			end
-		end
-	}
-
-	scope :focus, -> (focus){
-		unless focus.blank?
-			where('focus ILIKE :focus', focus: "%#{focus}%")
 		end
 	}
 
