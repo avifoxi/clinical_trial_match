@@ -71,6 +71,7 @@ group :test do
   gem "selenium-webdriver"
   gem "capybara-webkit"
   gem 'database_cleaner'
+  gem "codeclimate-test-reporter"
 end
 
 group :production do
