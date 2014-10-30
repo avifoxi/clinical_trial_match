@@ -9,25 +9,9 @@ describe Trial do
 		expect(build(:trial, :title => "")).to_not be_valid
 	end
 
-	it "is invalid without a description" do
-		expect(build(:trial, :description => "")).to_not be_valid
-	end
-
-	it "is invalid without a sponsor" do
-		expect(build(:trial, :sponsor => "")).to_not be_valid
-	end
-
-	it "is invalid without a focus" do
-		expect(build(:trial, :focus => "")).to_not be_valid
-	end
-
 	it "is invalid without a unique nct_id value" do
 		create(:trial, :nct_id => "12345")
 		expect(build(:trial, :nct_id => "12345")).to_not be_valid
-	end
-
-	it "is invalid without an inclusion criteria" do
-		expect(build(:trial, :inclusion => "")).to_not be_valid
 	end
 
 	context "appends html markup" do
