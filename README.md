@@ -2,6 +2,7 @@ Clinical Trial Match
 =======
 
 [![Build Status](https://travis-ci.org/mwenger1/clinical_trial_match.svg?branch=master)](https://travis-ci.org/mwenger1/clinical_trial_match)
+[![Code Climate](https://codeclimate.com/github/mwenger1/clinical_trial_match/badges/gpa.svg)](https://codeclimate.com/github/mwenger1/clinical_trial_match)
 
 Project Goal
 -----------
