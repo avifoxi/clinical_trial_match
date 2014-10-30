@@ -42,6 +42,7 @@ namespace :importer do
         require 'nokogiri'
         require 'rest-client'
         require 'uri'
+        require 'zip'
 
         # HELPER METHOD FOR IDENTIFYING DIRECTORY DEPTH
         def get_from_xpath(path_and_name, directory, merge=false)
@@ -94,16 +95,16 @@ namespace :importer do
         @site_counter = 0
         last_import_date = Import.last.datetime unless Import.last.nil?
 
-        Zip::Archive.open("#{Rails.root}/tmp/trial_download.zip") do |ar|
-          @num_xml_files = ar.num_files # number of entries
+        Zip::File.open("#{Rails.root}/tmp/trial_download.zip") do |ar|
+          @num_xml_files = ar.count # number of entries
           puts "Looping through #{@num_xml_files} xml files"
 
-          @num_xml_files.times do |i|
+          ar.each_with_index do |file, index|
             break if (args['number_of_trials'].present? && (@modified_trial_counter >= args['number_of_trials'].to_i))
 
-            puts "Processing xml file:#{i} / #{@num_xml_files}"
-            entry_name = ar.get_name(i) # get entry name from archive
-            f = ar.fopen(entry_name)
+            puts "Processing #{file}: #{index} / #{@num_xml_files}"
+            entry_name = ar.name # get entry name from archive
+            f = file.get_input_stream.read
             doc = Nokogiri::XML(f)
             root = doc.root
             temp_nct_id = get_from_xpath("//nct_id",root)
@@ -111,7 +112,7 @@ namespace :importer do
             if last_import_date.present? && (get_from_xpath("lastchanged_date",root) < last_import_date)
                 puts "Fail: Changes Older than Last Import"
                 @unmodified_trial_counter += 1
-                f.close
+                f = ""
             else
                 @trial = Trial.where("nct_id = ?", temp_nct_id).present? ? Trial.where("nct_id = ?", temp_nct_id).first : Trial.new
                 @trial.title = get_from_xpath("brief_title",root)
@@ -180,7 +181,7 @@ namespace :importer do
                     @invalid_trial_counter += 1
                 end
 
-                f.close
+                f = ""
                 puts "\n"
             end
 
@@ -206,6 +207,7 @@ namespace :importer do
         puts "Processed #{@num_xml_files} xml files"
 
         puts "There are #{Trial.all.count} trials total"
+        puts "There are #{Site.all.count} sites total"
         puts "Sending import email"
 
         Newmatch.new_match_report.deliver
