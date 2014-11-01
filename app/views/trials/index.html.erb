@@ -48,19 +48,13 @@
 
         <% end %>
 
-      <% if @trials.count > 10 %>
-        <div class="pagination2" style="margin-bottom:20px;">
-          <%= will_paginate @trials, :container =>false %></div>
-      <% end %>
+        <%= render "pagination_panel" %>
 
         <% @trials.each do |trial| %>
           <%= render "match_result", trial: trial %>
         <% end %>
 
-      <% if @trials.count > 10 %>
-        <div class="pagination2" style="margin-bottom:20px;">
-          <%= will_paginate @trials, :container =>false %></div>
-      <% end %>
+         <%= render "pagination_panel" %>
 
         <% end%>
       </div>

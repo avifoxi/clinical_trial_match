@@ -1,0 +1,4 @@
+<% if @trials.count > 10 %>
+  <div class="row pagination-panel">
+    <%= will_paginate @trials, :container =>false %></div>
+<% end %>
