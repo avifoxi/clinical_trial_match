@@ -75,7 +75,7 @@
 	a:after {
 		content:"";
 		margin-left:5px;
-		background:url("sprites/github.png") no-repeat;
+		@include sprites-sprite(github);
 		height:32px;
 		width:32px;
 		display:block;
@@ -83,6 +83,12 @@
 	}
 }
 
+.clinical-trials-logo{
+	display:inline-block;
+	height:32px;
+	width:230px;
+	@include sprites-sprite(logo-clinicaltrials);
+}
 
 // @media screen and (min-device-width: 768px){
 
