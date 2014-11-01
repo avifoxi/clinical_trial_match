@@ -3,7 +3,7 @@ $panelBorderColor: #ccc;
 $primaryDarkTextColor:#333;
 $borderLineThickness: 1px;
 $panelBackgroundColor: #f6f6f6;
-$panelBackgroundColorHover: scale_color($panelBackgroundColor, $lightness: -10%);
+$panelBackgroundColorHover: scale_lightness($panelBackgroundColor, -10%);
 $borderRadius: 5px;
 $defaultSpacer: 1em;
 
