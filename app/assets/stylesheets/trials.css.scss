@@ -2,7 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+%panel-container {
+	background-color: $panelBackgroundColor;
+	@include border-radius($borderRadius);
+	border:$borderLineThickness solid $panelBorderColor;
+}
+
 .side-panel{
+	@extend %panel-container;
 }
 
 

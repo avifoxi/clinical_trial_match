@@ -9,12 +9,12 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  */
-
-  @import "variables";
+@import "compass";
+@import "variables";
 
 .twitter-bootstrap-namespace {
   @import "bootstrap-sprockets";
-  @import "bootstrap_custom";
+  @import "bootstrap-custom";
   @import "trials";
 
 }
