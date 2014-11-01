@@ -50,5 +50,6 @@
 @import "bootstrap/responsive-utilities";
 
 .container{
+	margin-top: $defaultSpacer;
   max-width: $maxPageWidth;
 }

@@ -1,36 +1,38 @@
-<div class="trialResults hoverableLink">
-  <h3>
-    <%= link_to trial.title, trial %></h3>
-  <% unless trial.sites.first.blank? || params[:pc].blank? %>
-  <% @site = trial.sites.near(session[:coordinates],params[:td]).first %>
-  <% unless @site.blank? %>
-  <h4>Closest Site:</h4>
-  <p>
-    <%= "#{@site.facility} - (#{@site.distance_from(session[:coordinates]).round()} miles away)"%></p>
-  <% end %>
-  <% end %>
-  <div class="clear"></div>
-  <h4>Tumor Type:</h4>
-  <p>
-    <%= (trial.focus.length >= 160)? "#{trial.focus[0..160]}...":"#{trial.focus[0..160]}" %>
-  </p>
-  <div class="clear"></div>
-  <div class="inline">
-    <h4>Type:</h4>
+<div class="match-result-panel row">
+  <div class="col-xs-12">
+    <h3>
+      <%= link_to trial.title, trial %></h3>
+    <% unless trial.sites.first.blank? || params[:pc].blank? %>
+    <% @site = trial.sites.near(session[:coordinates],params[:td]).first %>
+    <% unless @site.blank? %>
+    <h4>Closest Site:</h4>
     <p>
-      <%= trial.study_type %></p>
-    <h4>Phase:</h4>
-    <p>
-      <%= trial.phase %></p>
-    <h4>Controls:</h4>
-    <p>
-      <%= (trial.healthy_volunteers == "Accepts Healthy Volunteers") ? "Yes" : "No"   %></p>
-    <h4>Gender:</h4>
-    <p>
-      <%= trial.gender %></p>
-    <h4>Age:</h4>
-    <p>
-      <%= trial.originalminage.to_s + " - " + trial.originalmaxage.to_s %></p>
+      <%= "#{@site.facility} - (#{@site.distance_from(session[:coordinates]).round()} miles away)"%></p>
+    <% end %>
+    <% end %>
     <div class="clear"></div>
+    <h4>Tumor Type:</h4>
+    <p>
+      <%= (trial.focus.length >= 160)? "#{trial.focus[0..160]}...":"#{trial.focus[0..160]}" %>
+    </p>
+    <div class="clear"></div>
+    <div class="inline">
+      <h4>Type:</h4>
+      <p>
+        <%= trial.study_type %></p>
+      <h4>Phase:</h4>
+      <p>
+        <%= trial.phase %></p>
+      <h4>Controls:</h4>
+      <p>
+        <%= (trial.healthy_volunteers == "Accepts Healthy Volunteers") ? "Yes" : "No"   %></p>
+      <h4>Gender:</h4>
+      <p>
+        <%= trial.gender %></p>
+      <h4>Age:</h4>
+      <p>
+        <%= trial.originalminage.to_s + " - " + trial.originalmaxage.to_s %></p>
+      <div class="clear"></div>
+    </div>
   </div>
 </div>

@@ -12,7 +12,10 @@
 	@extend %panel-container;
 }
 
-
+.match-result-panel{
+	@extend %panel-container;
+	margin-bottom:$defaultSpacer;
+}
 
 // @media screen and (min-device-width: 768px){
 
