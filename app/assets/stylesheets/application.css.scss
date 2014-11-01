@@ -10,11 +10,13 @@
  *
  */
 @import "compass";
+// @import "sprites/*.png"
 @import "variables";
 
 .twitter-bootstrap-namespace {
   @import "bootstrap-sprockets";
   @import "bootstrap-custom";
+
   @import "trials";
 
 }
