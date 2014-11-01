@@ -18,21 +18,11 @@
       </p>
       <div class="clear"></div>
       <div class="inline">
-        <h4>Type:</h4>
-        <p>
-          <%= trial.study_type %></p>
-        <h4>Phase:</h4>
-        <p>
-          <%= trial.phase %></p>
-        <h4>Controls:</h4>
-        <p>
-          <%= (trial.healthy_volunteers == "Accepts Healthy Volunteers") ? "Yes" : "No"   %></p>
-        <h4>Gender:</h4>
-        <p>
-          <%= trial.gender %></p>
-        <h4>Age:</h4>
-        <p>
-          <%= trial.originalminage.to_s + " - " + trial.originalmaxage.to_s %></p>
+        <p>Type: <%= content_tag(:span,trial.study_type) %></p>
+        <p>Phase: <%= content_tag(:span,trial.phase) %></p>
+        <p>Controls: <%= content_tag(:span,(trial.healthy_volunteers == "Accepts Healthy Volunteers") ? "Yes" : "No"  ) %></p>
+        <p>Gender: <%= content_tag(:span,trial.gender) %></p>
+        <p>Age: <%= content_tag(:span,trial.originalminage.to_s + " - " + trial.originalmaxage.to_s) %></p>
         <div class="clear"></div>
       </div>
     </div>

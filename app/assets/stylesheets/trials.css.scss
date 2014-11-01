@@ -58,6 +58,15 @@
 	  }
 	}
 }
+
+.inline p {
+	float:left;
+	font-weight:bold;
+	span{
+		font-weight:normal;
+		margin-right:10px;
+	}
+}
 // @media screen and (min-device-width: 768px){
 
 
