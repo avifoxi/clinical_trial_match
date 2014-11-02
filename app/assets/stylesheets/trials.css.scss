@@ -76,8 +76,7 @@
 		content:"";
 		margin-left:5px;
 		@include sprites-sprite(github);
-		height:32px;
-		width:32px;
+		@include sprites-sprite-dimensions(github);
 		display:block;
     float: right;
 	}
@@ -85,8 +84,7 @@
 
 .clinical-trials-logo{
 	display:inline-block;
-	height:32px;
-	width:230px;
+	@include sprites-sprite-dimensions(logo-clinicaltrials);
 	@include sprites-sprite(logo-clinicaltrials);
 }
 
