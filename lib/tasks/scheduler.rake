@@ -1,4 +1,6 @@
 namespace :importer do
+
+    ### 
     desc "Task for Heroku Scheduler to reset last import date"
     task :clear_import_date => :environment do
         puts "Resetting date to 1900"
@@ -45,6 +47,7 @@ namespace :importer do
         require 'zip'
 
         # HELPER METHOD FOR IDENTIFYING DIRECTORY DEPTH
+        # nokogiri dsl -- check docs
         def get_from_xpath(path_and_name, directory, merge=false)
             if directory.xpath("#{path_and_name}").nil?
                 return ""
@@ -76,6 +79,7 @@ namespace :importer do
             end
         end
 
+        ### ENV vars set in config/initializers/condition
 
         encoded_condition = URI.encode(ClinicalTrialMatcher::Application.config.importer_query)
         remove_unknown = ClinicalTrialMatcher::Application.config.remove_unknown
@@ -190,6 +194,8 @@ namespace :importer do
         end
 
         # TIMESTAMP THE IMPORT RUN
+
+        ## this is notifier for website admins -- lets them know if some data is f'd -- 'hey guys, this don't work, love the importer team'
         @import = Import.new
         @import.num_xml_files = @num_xml_files
         @import.datetime = Time.new
